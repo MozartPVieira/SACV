@@ -404,7 +404,8 @@ export const ModelName = {
   Dispositivo: 'Dispositivo',
   ContratoDispositivo: 'ContratoDispositivo',
   Consentimento: 'Consentimento',
-  LogAuditoria: 'LogAuditoria'
+  LogAuditoria: 'LogAuditoria',
+  ConviteTutor: 'ConviteTutor'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -420,7 +421,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "conta" | "contaPapel" | "contratante" | "usuarioSACV" | "perfilUsuario" | "tutor" | "vinculoTutorUsuario" | "medicamento" | "horarioMedicamento" | "confirmacaoMedicamento" | "agendamento" | "lista" | "itemLista" | "registroSaude" | "plano" | "assinatura" | "pagamento" | "dispositivo" | "contratoDispositivo" | "consentimento" | "logAuditoria"
+    modelProps: "conta" | "contaPapel" | "contratante" | "usuarioSACV" | "perfilUsuario" | "tutor" | "vinculoTutorUsuario" | "medicamento" | "horarioMedicamento" | "confirmacaoMedicamento" | "agendamento" | "lista" | "itemLista" | "registroSaude" | "plano" | "assinatura" | "pagamento" | "dispositivo" | "contratoDispositivo" | "consentimento" | "logAuditoria" | "conviteTutor"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1978,6 +1979,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ConviteTutor: {
+      payload: Prisma.$ConviteTutorPayload<ExtArgs>
+      fields: Prisma.ConviteTutorFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ConviteTutorFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConviteTutorPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ConviteTutorFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConviteTutorPayload>
+        }
+        findFirst: {
+          args: Prisma.ConviteTutorFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConviteTutorPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ConviteTutorFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConviteTutorPayload>
+        }
+        findMany: {
+          args: Prisma.ConviteTutorFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConviteTutorPayload>[]
+        }
+        create: {
+          args: Prisma.ConviteTutorCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConviteTutorPayload>
+        }
+        createMany: {
+          args: Prisma.ConviteTutorCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ConviteTutorCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConviteTutorPayload>[]
+        }
+        delete: {
+          args: Prisma.ConviteTutorDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConviteTutorPayload>
+        }
+        update: {
+          args: Prisma.ConviteTutorUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConviteTutorPayload>
+        }
+        deleteMany: {
+          args: Prisma.ConviteTutorDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ConviteTutorUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ConviteTutorUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConviteTutorPayload>[]
+        }
+        upsert: {
+          args: Prisma.ConviteTutorUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConviteTutorPayload>
+        }
+        aggregate: {
+          args: Prisma.ConviteTutorAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateConviteTutor>
+        }
+        groupBy: {
+          args: Prisma.ConviteTutorGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ConviteTutorGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ConviteTutorCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ConviteTutorCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2273,6 +2348,28 @@ export const LogAuditoriaScalarFieldEnum = {
 export type LogAuditoriaScalarFieldEnum = (typeof LogAuditoriaScalarFieldEnum)[keyof typeof LogAuditoriaScalarFieldEnum]
 
 
+export const ConviteTutorScalarFieldEnum = {
+  id: 'id',
+  usuarioId: 'usuarioId',
+  convidadoPorContaId: 'convidadoPorContaId',
+  convidadoNome: 'convidadoNome',
+  convidadoEmail: 'convidadoEmail',
+  relacao: 'relacao',
+  papel: 'papel',
+  podeEditar: 'podeEditar',
+  recebeResumo: 'recebeResumo',
+  recebeAlertas: 'recebeAlertas',
+  status: 'status',
+  token: 'token',
+  expiraEm: 'expiraEm',
+  aceitoEm: 'aceitoEm',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type ConviteTutorScalarFieldEnum = (typeof ConviteTutorScalarFieldEnum)[keyof typeof ConviteTutorScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -2437,6 +2534,20 @@ export type ListEnumStatusAssinaturaFieldRefInput<$PrismaModel> = FieldRefInputT
 
 
 /**
+ * Reference to a field of type 'StatusConviteTutor'
+ */
+export type EnumStatusConviteTutorFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusConviteTutor'>
+    
+
+
+/**
+ * Reference to a field of type 'StatusConviteTutor[]'
+ */
+export type ListEnumStatusConviteTutorFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusConviteTutor[]'>
+    
+
+
+/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -2580,6 +2691,7 @@ export type GlobalOmitConfig = {
   contratoDispositivo?: Prisma.ContratoDispositivoOmit
   consentimento?: Prisma.ConsentimentoOmit
   logAuditoria?: Prisma.LogAuditoriaOmit
+  conviteTutor?: Prisma.ConviteTutorOmit
 }
 
 /* Types for Logging */

@@ -52,19 +52,20 @@ enum StatusAgendamento {
 }
 
 model Conta {
-  id           String        @id @default(cuid())
-  nome         String
-  email        String        @unique
-  telefone     String?
-  senhaHash    String
-  ativo        Boolean       @default(true)
-  criadoEm     DateTime      @default(now())
-  atualizadoEm DateTime      @updatedAt
-  papeis       ContaPapel[]
-  contratante  Contratante?
-  tutor        Tutor?
-  usuario      UsuarioSACV?
-  auditorias   LogAuditoria[]
+  id               String         @id @default(cuid())
+  nome             String
+  email            String         @unique
+  telefone         String?
+  senhaHash        String
+  ativo            Boolean        @default(true)
+  criadoEm         DateTime       @default(now())
+  atualizadoEm     DateTime       @updatedAt
+  papeis           ContaPapel[]
+  contratante      Contratante?
+  tutor            Tutor?
+  usuario          UsuarioSACV?
+  auditorias       LogAuditoria[]
+  convitesEnviados ConviteTutor[] @relation("ConvitesEnviados")
 }
 
 model ContaPapel {
@@ -72,6 +73,7 @@ model ContaPapel {
   contaId String
   papel   PapelConta
   conta   Conta      @relation(fields: [contaId], references: [id], onDelete: Cascade)
+
   @@unique([contaId, papel])
 }
 
@@ -84,88 +86,90 @@ model Contratante {
 }
 
 model UsuarioSACV {
-  id                    String                 @id @default(cuid())
-  contaId               String?                @unique
-  nome                  String
-  nomePreferido         String?
-  dataNascimento        DateTime?
-  telefone              String?
-  modoUso               ModoUso                @default(AUTONOMO)
-  nivelAcompanhamento   NivelAcompanhamento    @default(PREVENTIVO)
-  ativo                  Boolean                @default(true)
-  conta                  Conta?                 @relation(fields: [contaId], references: [id])
-  perfil                 PerfilUsuario?
-  tutores                VinculoTutorUsuario[]
-  medicamentos          Medicamento[]
-  agendamentos          Agendamento[]
-  listas                 Lista[]
-  consentimentos        Consentimento[]
-  assinaturas           Assinatura[]
-  registrosSaude        RegistroSaude[]
-  criadoEm              DateTime               @default(now())
-  atualizadoEm          DateTime               @updatedAt
+  id                  String                @id @default(cuid())
+  contaId             String?               @unique
+  nome                String
+  nomePreferido       String?
+  dataNascimento      DateTime?
+  telefone            String?
+  modoUso             ModoUso               @default(AUTONOMO)
+  nivelAcompanhamento NivelAcompanhamento   @default(PREVENTIVO)
+  ativo               Boolean               @default(true)
+  conta               Conta?                @relation(fields: [contaId], references: [id])
+  perfil              PerfilUsuario?
+  tutores             VinculoTutorUsuario[]
+  medicamentos        Medicamento[]
+  agendamentos        Agendamento[]
+  listas              Lista[]
+  consentimentos      Consentimento[]
+  assinaturas         Assinatura[]
+  registrosSaude      RegistroSaude[]
+  convitesTutor       ConviteTutor[]
+  criadoEm            DateTime              @default(now())
+  atualizadoEm        DateTime              @updatedAt
 }
 
 model PerfilUsuario {
-  id                    String      @id @default(cuid())
-  usuarioId             String      @unique
-  tratamentoPreferido   String?
-  estiloCida             String?
-  horarioAcordar         String?
-  horarioDormir          String?
-  observacoesRotina      String?
-  preferencias          String?
-  limitacoes             String?
-  usuario                UsuarioSACV @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  id                  String      @id @default(cuid())
+  usuarioId           String      @unique
+  tratamentoPreferido String?
+  estiloCida          String?
+  horarioAcordar      String?
+  horarioDormir       String?
+  observacoesRotina   String?
+  preferencias        String?
+  limitacoes          String?
+  usuario             UsuarioSACV @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
 }
 
 model Tutor {
-  id        String                 @id @default(cuid())
-  contaId   String                 @unique
-  conta     Conta                  @relation(fields: [contaId], references: [id], onDelete: Cascade)
+  id       String                @id @default(cuid())
+  contaId  String                @unique
+  conta    Conta                 @relation(fields: [contaId], references: [id], onDelete: Cascade)
   usuarios VinculoTutorUsuario[]
 }
 
 model VinculoTutorUsuario {
-  id          String      @id @default(cuid())
-  tutorId     String
-  usuarioId   String
-  principal   Boolean     @default(false)
-  podeEditar  Boolean     @default(false)
-  recebeResumo Boolean    @default(true)
-  recebeAlertas Boolean   @default(true)
-  tutor       Tutor       @relation(fields: [tutorId], references: [id], onDelete: Cascade)
-  usuario     UsuarioSACV @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  id            String      @id @default(cuid())
+  tutorId       String
+  usuarioId     String
+  principal     Boolean     @default(false)
+  podeEditar    Boolean     @default(false)
+  recebeResumo  Boolean     @default(true)
+  recebeAlertas Boolean     @default(true)
+  tutor         Tutor       @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+  usuario       UsuarioSACV @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
   @@unique([tutorId, usuarioId])
 }
 
 model Medicamento {
-  id          String               @id @default(cuid())
-  usuarioId   String
-  nome        String
-  dose        String?
-  instrucoes  String?
-  ativo       Boolean              @default(true)
-  usuario     UsuarioSACV          @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
-  horarios    HorarioMedicamento[]
+  id         String               @id @default(cuid())
+  usuarioId  String
+  nome       String
+  dose       String?
+  instrucoes String?
+  ativo      Boolean              @default(true)
+  usuario    UsuarioSACV          @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  horarios   HorarioMedicamento[]
 }
 
 model HorarioMedicamento {
-  id            String                    @id @default(cuid())
+  id            String                   @id @default(cuid())
   medicamentoId String
   horario       String
   diasSemana    String?
-  medicamento   Medicamento               @relation(fields: [medicamentoId], references: [id], onDelete: Cascade)
+  medicamento   Medicamento              @relation(fields: [medicamentoId], references: [id], onDelete: Cascade)
   confirmacoes  ConfirmacaoMedicamento[]
 }
 
 model ConfirmacaoMedicamento {
-  id         String             @id @default(cuid())
-  horarioId  String
-  confirmado Boolean
+  id           String             @id @default(cuid())
+  horarioId    String
+  confirmado   Boolean
   confirmadoEm DateTime?
-  origem     String?
-  horario    HorarioMedicamento @relation(fields: [horarioId], references: [id], onDelete: Cascade)
+  origem       String?
+  horario      HorarioMedicamento @relation(fields: [horarioId], references: [id], onDelete: Cascade)
 }
 
 model Agendamento {
@@ -196,45 +200,45 @@ model Lista {
 }
 
 model ItemLista {
-  id        String   @id @default(cuid())
-  listaId   String
-  descricao String
+  id         String   @id @default(cuid())
+  listaId    String
+  descricao  String
   quantidade String?
-  concluido Boolean  @default(false)
-  criadoEm  DateTime @default(now())
-  lista     Lista    @relation(fields: [listaId], references: [id], onDelete: Cascade)
+  concluido  Boolean  @default(false)
+  criadoEm   DateTime @default(now())
+  lista      Lista    @relation(fields: [listaId], references: [id], onDelete: Cascade)
 }
 
 model RegistroSaude {
-  id        String      @id @default(cuid())
-  usuarioId String
-  area      String
-  valor     String?
-  nota      String?
-  registradoEm DateTime @default(now())
-  usuario   UsuarioSACV @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  id           String      @id @default(cuid())
+  usuarioId    String
+  area         String
+  valor        String?
+  nota         String?
+  registradoEm DateTime    @default(now())
+  usuario      UsuarioSACV @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
 }
 
 model Plano {
   id          String       @id @default(cuid())
   nome        String
   descricao   String?
-  valorMensal Decimal      @db.Decimal(10,2)
+  valorMensal Decimal      @db.Decimal(10, 2)
   ativo       Boolean      @default(true)
   assinaturas Assinatura[]
 }
 
 model Assinatura {
-  id            String            @id @default(cuid())
+  id            String                @id @default(cuid())
   contratanteId String
   usuarioId     String?
   planoId       String
   inicio        DateTime
   validade      DateTime
-  status        StatusAssinatura  @default(ATIVA)
-  contratante   Contratante       @relation(fields: [contratanteId], references: [id])
-  usuario       UsuarioSACV?      @relation(fields: [usuarioId], references: [id])
-  plano         Plano             @relation(fields: [planoId], references: [id])
+  status        StatusAssinatura      @default(ATIVA)
+  contratante   Contratante           @relation(fields: [contratanteId], references: [id])
+  usuario       UsuarioSACV?          @relation(fields: [usuarioId], references: [id])
+  plano         Plano                 @relation(fields: [planoId], references: [id])
   pagamentos    Pagamento[]
   dispositivos  ContratoDispositivo[]
 }
@@ -243,7 +247,7 @@ model Pagamento {
   id           String     @id @default(cuid())
   assinaturaId String
   referencia   String?
-  valor        Decimal    @db.Decimal(10,2)
+  valor        Decimal    @db.Decimal(10, 2)
   vencimento   DateTime
   pagoEm       DateTime?
   status       String
@@ -251,22 +255,22 @@ model Pagamento {
 }
 
 model Dispositivo {
-  id          String                 @id @default(cuid())
-  serial      String                 @unique
-  tipo        String
-  modelo      String?
-  status      String
-  contratos   ContratoDispositivo[]
+  id        String                @id @default(cuid())
+  serial    String                @unique
+  tipo      String
+  modelo    String?
+  status    String
+  contratos ContratoDispositivo[]
 }
 
 model ContratoDispositivo {
-  id            String       @id @default(cuid())
+  id            String      @id @default(cuid())
   assinaturaId  String
   dispositivoId String
   inicio        DateTime
   devolvidoEm   DateTime?
-  assinatura    Assinatura   @relation(fields: [assinaturaId], references: [id], onDelete: Cascade)
-  dispositivo   Dispositivo  @relation(fields: [dispositivoId], references: [id])
+  assinatura    Assinatura  @relation(fields: [assinaturaId], references: [id], onDelete: Cascade)
+  dispositivo   Dispositivo @relation(fields: [dispositivoId], references: [id])
 }
 
 model Consentimento {
@@ -280,13 +284,44 @@ model Consentimento {
 }
 
 model LogAuditoria {
-  id        String   @id @default(cuid())
-  contaId   String?
-  acao      String
-  entidade  String
+  id         String   @id @default(cuid())
+  contaId    String?
+  acao       String
+  entidade   String
   entidadeId String?
-  detalhes  String?
-  criadoEm  DateTime @default(now())
-  conta     Conta?   @relation(fields: [contaId], references: [id])
+  detalhes   String?
+  criadoEm   DateTime @default(now())
+  conta      Conta?   @relation(fields: [contaId], references: [id])
 }
 
+enum StatusConviteTutor {
+  PENDENTE
+  ACEITO
+  RECUSADO
+  EXPIRADO
+  CANCELADO
+}
+
+model ConviteTutor {
+  id                  String             @id @default(cuid())
+  usuarioId           String
+  convidadoPorContaId String
+  convidadoNome       String
+  convidadoEmail      String
+  relacao             String?
+  papel               PapelConta         @default(TUTOR)
+  podeEditar          Boolean            @default(false)
+  recebeResumo        Boolean            @default(true)
+  recebeAlertas       Boolean            @default(true)
+  status              StatusConviteTutor @default(PENDENTE)
+  token               String             @unique @default(cuid())
+  expiraEm            DateTime
+  aceitoEm            DateTime?
+  criadoEm            DateTime           @default(now())
+  atualizadoEm        DateTime           @updatedAt
+  usuario             UsuarioSACV        @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  convidadoPor        Conta              @relation("ConvitesEnviados", fields: [convidadoPorContaId], references: [id], onDelete: Cascade)
+
+  @@index([usuarioId, status])
+  @@index([convidadoEmail, status])
+}

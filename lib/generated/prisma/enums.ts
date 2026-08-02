@@ -69,3 +69,14 @@ export const StatusAgendamento = {
 } as const
 
 export type StatusAgendamento = (typeof StatusAgendamento)[keyof typeof StatusAgendamento]
+
+
+export const StatusConviteTutor = {
+  PENDENTE: 'PENDENTE',
+  ACEITO: 'ACEITO',
+  RECUSADO: 'RECUSADO',
+  EXPIRADO: 'EXPIRADO',
+  CANCELADO: 'CANCELADO'
+} as const
+
+export type StatusConviteTutor = (typeof StatusConviteTutor)[keyof typeof StatusConviteTutor]

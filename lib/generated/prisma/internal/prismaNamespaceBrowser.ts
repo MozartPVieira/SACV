@@ -71,7 +71,8 @@ export const ModelName = {
   Dispositivo: 'Dispositivo',
   ContratoDispositivo: 'ContratoDispositivo',
   Consentimento: 'Consentimento',
-  LogAuditoria: 'LogAuditoria'
+  LogAuditoria: 'LogAuditoria',
+  ConviteTutor: 'ConviteTutor'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -344,6 +345,28 @@ export const LogAuditoriaScalarFieldEnum = {
 } as const
 
 export type LogAuditoriaScalarFieldEnum = (typeof LogAuditoriaScalarFieldEnum)[keyof typeof LogAuditoriaScalarFieldEnum]
+
+
+export const ConviteTutorScalarFieldEnum = {
+  id: 'id',
+  usuarioId: 'usuarioId',
+  convidadoPorContaId: 'convidadoPorContaId',
+  convidadoNome: 'convidadoNome',
+  convidadoEmail: 'convidadoEmail',
+  relacao: 'relacao',
+  papel: 'papel',
+  podeEditar: 'podeEditar',
+  recebeResumo: 'recebeResumo',
+  recebeAlertas: 'recebeAlertas',
+  status: 'status',
+  token: 'token',
+  expiraEm: 'expiraEm',
+  aceitoEm: 'aceitoEm',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type ConviteTutorScalarFieldEnum = (typeof ConviteTutorScalarFieldEnum)[keyof typeof ConviteTutorScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -211,6 +211,7 @@ export type ContaWhereInput = {
   tutor?: Prisma.XOR<Prisma.TutorNullableScalarRelationFilter, Prisma.TutorWhereInput> | null
   usuario?: Prisma.XOR<Prisma.UsuarioSACVNullableScalarRelationFilter, Prisma.UsuarioSACVWhereInput> | null
   auditorias?: Prisma.LogAuditoriaListRelationFilter
+  convitesEnviados?: Prisma.ConviteTutorListRelationFilter
 }
 
 export type ContaOrderByWithRelationInput = {
@@ -227,6 +228,7 @@ export type ContaOrderByWithRelationInput = {
   tutor?: Prisma.TutorOrderByWithRelationInput
   usuario?: Prisma.UsuarioSACVOrderByWithRelationInput
   auditorias?: Prisma.LogAuditoriaOrderByRelationAggregateInput
+  convitesEnviados?: Prisma.ConviteTutorOrderByRelationAggregateInput
 }
 
 export type ContaWhereUniqueInput = Prisma.AtLeast<{
@@ -246,6 +248,7 @@ export type ContaWhereUniqueInput = Prisma.AtLeast<{
   tutor?: Prisma.XOR<Prisma.TutorNullableScalarRelationFilter, Prisma.TutorWhereInput> | null
   usuario?: Prisma.XOR<Prisma.UsuarioSACVNullableScalarRelationFilter, Prisma.UsuarioSACVWhereInput> | null
   auditorias?: Prisma.LogAuditoriaListRelationFilter
+  convitesEnviados?: Prisma.ConviteTutorListRelationFilter
 }, "id" | "email">
 
 export type ContaOrderByWithAggregationInput = {
@@ -290,6 +293,7 @@ export type ContaCreateInput = {
   tutor?: Prisma.TutorCreateNestedOneWithoutContaInput
   usuario?: Prisma.UsuarioSACVCreateNestedOneWithoutContaInput
   auditorias?: Prisma.LogAuditoriaCreateNestedManyWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaUncheckedCreateInput = {
@@ -306,6 +310,7 @@ export type ContaUncheckedCreateInput = {
   tutor?: Prisma.TutorUncheckedCreateNestedOneWithoutContaInput
   usuario?: Prisma.UsuarioSACVUncheckedCreateNestedOneWithoutContaInput
   auditorias?: Prisma.LogAuditoriaUncheckedCreateNestedManyWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaUpdateInput = {
@@ -322,6 +327,7 @@ export type ContaUpdateInput = {
   tutor?: Prisma.TutorUpdateOneWithoutContaNestedInput
   usuario?: Prisma.UsuarioSACVUpdateOneWithoutContaNestedInput
   auditorias?: Prisma.LogAuditoriaUpdateManyWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUpdateManyWithoutConvidadoPorNestedInput
 }
 
 export type ContaUncheckedUpdateInput = {
@@ -338,6 +344,7 @@ export type ContaUncheckedUpdateInput = {
   tutor?: Prisma.TutorUncheckedUpdateOneWithoutContaNestedInput
   usuario?: Prisma.UsuarioSACVUncheckedUpdateOneWithoutContaNestedInput
   auditorias?: Prisma.LogAuditoriaUncheckedUpdateManyWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedUpdateManyWithoutConvidadoPorNestedInput
 }
 
 export type ContaCreateManyInput = {
@@ -506,6 +513,20 @@ export type ContaUpdateOneWithoutAuditoriasNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ContaUpdateToOneWithWhereWithoutAuditoriasInput, Prisma.ContaUpdateWithoutAuditoriasInput>, Prisma.ContaUncheckedUpdateWithoutAuditoriasInput>
 }
 
+export type ContaCreateNestedOneWithoutConvitesEnviadosInput = {
+  create?: Prisma.XOR<Prisma.ContaCreateWithoutConvitesEnviadosInput, Prisma.ContaUncheckedCreateWithoutConvitesEnviadosInput>
+  connectOrCreate?: Prisma.ContaCreateOrConnectWithoutConvitesEnviadosInput
+  connect?: Prisma.ContaWhereUniqueInput
+}
+
+export type ContaUpdateOneRequiredWithoutConvitesEnviadosNestedInput = {
+  create?: Prisma.XOR<Prisma.ContaCreateWithoutConvitesEnviadosInput, Prisma.ContaUncheckedCreateWithoutConvitesEnviadosInput>
+  connectOrCreate?: Prisma.ContaCreateOrConnectWithoutConvitesEnviadosInput
+  upsert?: Prisma.ContaUpsertWithoutConvitesEnviadosInput
+  connect?: Prisma.ContaWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ContaUpdateToOneWithWhereWithoutConvitesEnviadosInput, Prisma.ContaUpdateWithoutConvitesEnviadosInput>, Prisma.ContaUncheckedUpdateWithoutConvitesEnviadosInput>
+}
+
 export type ContaCreateWithoutPapeisInput = {
   id?: string
   nome: string
@@ -519,6 +540,7 @@ export type ContaCreateWithoutPapeisInput = {
   tutor?: Prisma.TutorCreateNestedOneWithoutContaInput
   usuario?: Prisma.UsuarioSACVCreateNestedOneWithoutContaInput
   auditorias?: Prisma.LogAuditoriaCreateNestedManyWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaUncheckedCreateWithoutPapeisInput = {
@@ -534,6 +556,7 @@ export type ContaUncheckedCreateWithoutPapeisInput = {
   tutor?: Prisma.TutorUncheckedCreateNestedOneWithoutContaInput
   usuario?: Prisma.UsuarioSACVUncheckedCreateNestedOneWithoutContaInput
   auditorias?: Prisma.LogAuditoriaUncheckedCreateNestedManyWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaCreateOrConnectWithoutPapeisInput = {
@@ -565,6 +588,7 @@ export type ContaUpdateWithoutPapeisInput = {
   tutor?: Prisma.TutorUpdateOneWithoutContaNestedInput
   usuario?: Prisma.UsuarioSACVUpdateOneWithoutContaNestedInput
   auditorias?: Prisma.LogAuditoriaUpdateManyWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUpdateManyWithoutConvidadoPorNestedInput
 }
 
 export type ContaUncheckedUpdateWithoutPapeisInput = {
@@ -580,6 +604,7 @@ export type ContaUncheckedUpdateWithoutPapeisInput = {
   tutor?: Prisma.TutorUncheckedUpdateOneWithoutContaNestedInput
   usuario?: Prisma.UsuarioSACVUncheckedUpdateOneWithoutContaNestedInput
   auditorias?: Prisma.LogAuditoriaUncheckedUpdateManyWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedUpdateManyWithoutConvidadoPorNestedInput
 }
 
 export type ContaCreateWithoutContratanteInput = {
@@ -595,6 +620,7 @@ export type ContaCreateWithoutContratanteInput = {
   tutor?: Prisma.TutorCreateNestedOneWithoutContaInput
   usuario?: Prisma.UsuarioSACVCreateNestedOneWithoutContaInput
   auditorias?: Prisma.LogAuditoriaCreateNestedManyWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaUncheckedCreateWithoutContratanteInput = {
@@ -610,6 +636,7 @@ export type ContaUncheckedCreateWithoutContratanteInput = {
   tutor?: Prisma.TutorUncheckedCreateNestedOneWithoutContaInput
   usuario?: Prisma.UsuarioSACVUncheckedCreateNestedOneWithoutContaInput
   auditorias?: Prisma.LogAuditoriaUncheckedCreateNestedManyWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaCreateOrConnectWithoutContratanteInput = {
@@ -641,6 +668,7 @@ export type ContaUpdateWithoutContratanteInput = {
   tutor?: Prisma.TutorUpdateOneWithoutContaNestedInput
   usuario?: Prisma.UsuarioSACVUpdateOneWithoutContaNestedInput
   auditorias?: Prisma.LogAuditoriaUpdateManyWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUpdateManyWithoutConvidadoPorNestedInput
 }
 
 export type ContaUncheckedUpdateWithoutContratanteInput = {
@@ -656,6 +684,7 @@ export type ContaUncheckedUpdateWithoutContratanteInput = {
   tutor?: Prisma.TutorUncheckedUpdateOneWithoutContaNestedInput
   usuario?: Prisma.UsuarioSACVUncheckedUpdateOneWithoutContaNestedInput
   auditorias?: Prisma.LogAuditoriaUncheckedUpdateManyWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedUpdateManyWithoutConvidadoPorNestedInput
 }
 
 export type ContaCreateWithoutUsuarioInput = {
@@ -671,6 +700,7 @@ export type ContaCreateWithoutUsuarioInput = {
   contratante?: Prisma.ContratanteCreateNestedOneWithoutContaInput
   tutor?: Prisma.TutorCreateNestedOneWithoutContaInput
   auditorias?: Prisma.LogAuditoriaCreateNestedManyWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaUncheckedCreateWithoutUsuarioInput = {
@@ -686,6 +716,7 @@ export type ContaUncheckedCreateWithoutUsuarioInput = {
   contratante?: Prisma.ContratanteUncheckedCreateNestedOneWithoutContaInput
   tutor?: Prisma.TutorUncheckedCreateNestedOneWithoutContaInput
   auditorias?: Prisma.LogAuditoriaUncheckedCreateNestedManyWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaCreateOrConnectWithoutUsuarioInput = {
@@ -717,6 +748,7 @@ export type ContaUpdateWithoutUsuarioInput = {
   contratante?: Prisma.ContratanteUpdateOneWithoutContaNestedInput
   tutor?: Prisma.TutorUpdateOneWithoutContaNestedInput
   auditorias?: Prisma.LogAuditoriaUpdateManyWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUpdateManyWithoutConvidadoPorNestedInput
 }
 
 export type ContaUncheckedUpdateWithoutUsuarioInput = {
@@ -732,6 +764,7 @@ export type ContaUncheckedUpdateWithoutUsuarioInput = {
   contratante?: Prisma.ContratanteUncheckedUpdateOneWithoutContaNestedInput
   tutor?: Prisma.TutorUncheckedUpdateOneWithoutContaNestedInput
   auditorias?: Prisma.LogAuditoriaUncheckedUpdateManyWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedUpdateManyWithoutConvidadoPorNestedInput
 }
 
 export type ContaCreateWithoutTutorInput = {
@@ -747,6 +780,7 @@ export type ContaCreateWithoutTutorInput = {
   contratante?: Prisma.ContratanteCreateNestedOneWithoutContaInput
   usuario?: Prisma.UsuarioSACVCreateNestedOneWithoutContaInput
   auditorias?: Prisma.LogAuditoriaCreateNestedManyWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaUncheckedCreateWithoutTutorInput = {
@@ -762,6 +796,7 @@ export type ContaUncheckedCreateWithoutTutorInput = {
   contratante?: Prisma.ContratanteUncheckedCreateNestedOneWithoutContaInput
   usuario?: Prisma.UsuarioSACVUncheckedCreateNestedOneWithoutContaInput
   auditorias?: Prisma.LogAuditoriaUncheckedCreateNestedManyWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaCreateOrConnectWithoutTutorInput = {
@@ -793,6 +828,7 @@ export type ContaUpdateWithoutTutorInput = {
   contratante?: Prisma.ContratanteUpdateOneWithoutContaNestedInput
   usuario?: Prisma.UsuarioSACVUpdateOneWithoutContaNestedInput
   auditorias?: Prisma.LogAuditoriaUpdateManyWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUpdateManyWithoutConvidadoPorNestedInput
 }
 
 export type ContaUncheckedUpdateWithoutTutorInput = {
@@ -808,6 +844,7 @@ export type ContaUncheckedUpdateWithoutTutorInput = {
   contratante?: Prisma.ContratanteUncheckedUpdateOneWithoutContaNestedInput
   usuario?: Prisma.UsuarioSACVUncheckedUpdateOneWithoutContaNestedInput
   auditorias?: Prisma.LogAuditoriaUncheckedUpdateManyWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedUpdateManyWithoutConvidadoPorNestedInput
 }
 
 export type ContaCreateWithoutAuditoriasInput = {
@@ -823,6 +860,7 @@ export type ContaCreateWithoutAuditoriasInput = {
   contratante?: Prisma.ContratanteCreateNestedOneWithoutContaInput
   tutor?: Prisma.TutorCreateNestedOneWithoutContaInput
   usuario?: Prisma.UsuarioSACVCreateNestedOneWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaUncheckedCreateWithoutAuditoriasInput = {
@@ -838,6 +876,7 @@ export type ContaUncheckedCreateWithoutAuditoriasInput = {
   contratante?: Prisma.ContratanteUncheckedCreateNestedOneWithoutContaInput
   tutor?: Prisma.TutorUncheckedCreateNestedOneWithoutContaInput
   usuario?: Prisma.UsuarioSACVUncheckedCreateNestedOneWithoutContaInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutConvidadoPorInput
 }
 
 export type ContaCreateOrConnectWithoutAuditoriasInput = {
@@ -869,6 +908,7 @@ export type ContaUpdateWithoutAuditoriasInput = {
   contratante?: Prisma.ContratanteUpdateOneWithoutContaNestedInput
   tutor?: Prisma.TutorUpdateOneWithoutContaNestedInput
   usuario?: Prisma.UsuarioSACVUpdateOneWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUpdateManyWithoutConvidadoPorNestedInput
 }
 
 export type ContaUncheckedUpdateWithoutAuditoriasInput = {
@@ -884,6 +924,87 @@ export type ContaUncheckedUpdateWithoutAuditoriasInput = {
   contratante?: Prisma.ContratanteUncheckedUpdateOneWithoutContaNestedInput
   tutor?: Prisma.TutorUncheckedUpdateOneWithoutContaNestedInput
   usuario?: Prisma.UsuarioSACVUncheckedUpdateOneWithoutContaNestedInput
+  convitesEnviados?: Prisma.ConviteTutorUncheckedUpdateManyWithoutConvidadoPorNestedInput
+}
+
+export type ContaCreateWithoutConvitesEnviadosInput = {
+  id?: string
+  nome: string
+  email: string
+  telefone?: string | null
+  senhaHash: string
+  ativo?: boolean
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  papeis?: Prisma.ContaPapelCreateNestedManyWithoutContaInput
+  contratante?: Prisma.ContratanteCreateNestedOneWithoutContaInput
+  tutor?: Prisma.TutorCreateNestedOneWithoutContaInput
+  usuario?: Prisma.UsuarioSACVCreateNestedOneWithoutContaInput
+  auditorias?: Prisma.LogAuditoriaCreateNestedManyWithoutContaInput
+}
+
+export type ContaUncheckedCreateWithoutConvitesEnviadosInput = {
+  id?: string
+  nome: string
+  email: string
+  telefone?: string | null
+  senhaHash: string
+  ativo?: boolean
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  papeis?: Prisma.ContaPapelUncheckedCreateNestedManyWithoutContaInput
+  contratante?: Prisma.ContratanteUncheckedCreateNestedOneWithoutContaInput
+  tutor?: Prisma.TutorUncheckedCreateNestedOneWithoutContaInput
+  usuario?: Prisma.UsuarioSACVUncheckedCreateNestedOneWithoutContaInput
+  auditorias?: Prisma.LogAuditoriaUncheckedCreateNestedManyWithoutContaInput
+}
+
+export type ContaCreateOrConnectWithoutConvitesEnviadosInput = {
+  where: Prisma.ContaWhereUniqueInput
+  create: Prisma.XOR<Prisma.ContaCreateWithoutConvitesEnviadosInput, Prisma.ContaUncheckedCreateWithoutConvitesEnviadosInput>
+}
+
+export type ContaUpsertWithoutConvitesEnviadosInput = {
+  update: Prisma.XOR<Prisma.ContaUpdateWithoutConvitesEnviadosInput, Prisma.ContaUncheckedUpdateWithoutConvitesEnviadosInput>
+  create: Prisma.XOR<Prisma.ContaCreateWithoutConvitesEnviadosInput, Prisma.ContaUncheckedCreateWithoutConvitesEnviadosInput>
+  where?: Prisma.ContaWhereInput
+}
+
+export type ContaUpdateToOneWithWhereWithoutConvitesEnviadosInput = {
+  where?: Prisma.ContaWhereInput
+  data: Prisma.XOR<Prisma.ContaUpdateWithoutConvitesEnviadosInput, Prisma.ContaUncheckedUpdateWithoutConvitesEnviadosInput>
+}
+
+export type ContaUpdateWithoutConvitesEnviadosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  telefone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  senhaHash?: Prisma.StringFieldUpdateOperationsInput | string
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  papeis?: Prisma.ContaPapelUpdateManyWithoutContaNestedInput
+  contratante?: Prisma.ContratanteUpdateOneWithoutContaNestedInput
+  tutor?: Prisma.TutorUpdateOneWithoutContaNestedInput
+  usuario?: Prisma.UsuarioSACVUpdateOneWithoutContaNestedInput
+  auditorias?: Prisma.LogAuditoriaUpdateManyWithoutContaNestedInput
+}
+
+export type ContaUncheckedUpdateWithoutConvitesEnviadosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  telefone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  senhaHash?: Prisma.StringFieldUpdateOperationsInput | string
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  papeis?: Prisma.ContaPapelUncheckedUpdateManyWithoutContaNestedInput
+  contratante?: Prisma.ContratanteUncheckedUpdateOneWithoutContaNestedInput
+  tutor?: Prisma.TutorUncheckedUpdateOneWithoutContaNestedInput
+  usuario?: Prisma.UsuarioSACVUncheckedUpdateOneWithoutContaNestedInput
+  auditorias?: Prisma.LogAuditoriaUncheckedUpdateManyWithoutContaNestedInput
 }
 
 
@@ -894,11 +1015,13 @@ export type ContaUncheckedUpdateWithoutAuditoriasInput = {
 export type ContaCountOutputType = {
   papeis: number
   auditorias: number
+  convitesEnviados: number
 }
 
 export type ContaCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   papeis?: boolean | ContaCountOutputTypeCountPapeisArgs
   auditorias?: boolean | ContaCountOutputTypeCountAuditoriasArgs
+  convitesEnviados?: boolean | ContaCountOutputTypeCountConvitesEnviadosArgs
 }
 
 /**
@@ -925,6 +1048,13 @@ export type ContaCountOutputTypeCountAuditoriasArgs<ExtArgs extends runtime.Type
   where?: Prisma.LogAuditoriaWhereInput
 }
 
+/**
+ * ContaCountOutputType without action
+ */
+export type ContaCountOutputTypeCountConvitesEnviadosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ConviteTutorWhereInput
+}
+
 
 export type ContaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -940,6 +1070,7 @@ export type ContaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   tutor?: boolean | Prisma.Conta$tutorArgs<ExtArgs>
   usuario?: boolean | Prisma.Conta$usuarioArgs<ExtArgs>
   auditorias?: boolean | Prisma.Conta$auditoriasArgs<ExtArgs>
+  convitesEnviados?: boolean | Prisma.Conta$convitesEnviadosArgs<ExtArgs>
   _count?: boolean | Prisma.ContaCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["conta"]>
 
@@ -983,6 +1114,7 @@ export type ContaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   tutor?: boolean | Prisma.Conta$tutorArgs<ExtArgs>
   usuario?: boolean | Prisma.Conta$usuarioArgs<ExtArgs>
   auditorias?: boolean | Prisma.Conta$auditoriasArgs<ExtArgs>
+  convitesEnviados?: boolean | Prisma.Conta$convitesEnviadosArgs<ExtArgs>
   _count?: boolean | Prisma.ContaCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ContaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -996,6 +1128,7 @@ export type $ContaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     tutor: Prisma.$TutorPayload<ExtArgs> | null
     usuario: Prisma.$UsuarioSACVPayload<ExtArgs> | null
     auditorias: Prisma.$LogAuditoriaPayload<ExtArgs>[]
+    convitesEnviados: Prisma.$ConviteTutorPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1405,6 +1538,7 @@ export interface Prisma__ContaClient<T, Null = never, ExtArgs extends runtime.Ty
   tutor<T extends Prisma.Conta$tutorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Conta$tutorArgs<ExtArgs>>): Prisma.Prisma__TutorClient<runtime.Types.Result.GetResult<Prisma.$TutorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   usuario<T extends Prisma.Conta$usuarioArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Conta$usuarioArgs<ExtArgs>>): Prisma.Prisma__UsuarioSACVClient<runtime.Types.Result.GetResult<Prisma.$UsuarioSACVPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   auditorias<T extends Prisma.Conta$auditoriasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Conta$auditoriasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LogAuditoriaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  convitesEnviados<T extends Prisma.Conta$convitesEnviadosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Conta$convitesEnviadosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConviteTutorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1937,6 +2071,30 @@ export type Conta$auditoriasArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.LogAuditoriaScalarFieldEnum | Prisma.LogAuditoriaScalarFieldEnum[]
+}
+
+/**
+ * Conta.convitesEnviados
+ */
+export type Conta$convitesEnviadosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ConviteTutor
+   */
+  select?: Prisma.ConviteTutorSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ConviteTutor
+   */
+  omit?: Prisma.ConviteTutorOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ConviteTutorInclude<ExtArgs> | null
+  where?: Prisma.ConviteTutorWhereInput
+  orderBy?: Prisma.ConviteTutorOrderByWithRelationInput | Prisma.ConviteTutorOrderByWithRelationInput[]
+  cursor?: Prisma.ConviteTutorWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ConviteTutorScalarFieldEnum | Prisma.ConviteTutorScalarFieldEnum[]
 }
 
 /**

@@ -146,3 +146,8 @@ export type Consentimento = Prisma.ConsentimentoModel
  * 
  */
 export type LogAuditoria = Prisma.LogAuditoriaModel
+/**
+ * Model ConviteTutor
+ * 
+ */
+export type ConviteTutor = Prisma.ConviteTutorModel

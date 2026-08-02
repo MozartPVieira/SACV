@@ -239,6 +239,7 @@ export type UsuarioSACVWhereInput = {
   consentimentos?: Prisma.ConsentimentoListRelationFilter
   assinaturas?: Prisma.AssinaturaListRelationFilter
   registrosSaude?: Prisma.RegistroSaudeListRelationFilter
+  convitesTutor?: Prisma.ConviteTutorListRelationFilter
 }
 
 export type UsuarioSACVOrderByWithRelationInput = {
@@ -262,6 +263,7 @@ export type UsuarioSACVOrderByWithRelationInput = {
   consentimentos?: Prisma.ConsentimentoOrderByRelationAggregateInput
   assinaturas?: Prisma.AssinaturaOrderByRelationAggregateInput
   registrosSaude?: Prisma.RegistroSaudeOrderByRelationAggregateInput
+  convitesTutor?: Prisma.ConviteTutorOrderByRelationAggregateInput
 }
 
 export type UsuarioSACVWhereUniqueInput = Prisma.AtLeast<{
@@ -288,6 +290,7 @@ export type UsuarioSACVWhereUniqueInput = Prisma.AtLeast<{
   consentimentos?: Prisma.ConsentimentoListRelationFilter
   assinaturas?: Prisma.AssinaturaListRelationFilter
   registrosSaude?: Prisma.RegistroSaudeListRelationFilter
+  convitesTutor?: Prisma.ConviteTutorListRelationFilter
 }, "id" | "contaId">
 
 export type UsuarioSACVOrderByWithAggregationInput = {
@@ -344,6 +347,7 @@ export type UsuarioSACVCreateInput = {
   consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVUncheckedCreateInput = {
@@ -366,6 +370,7 @@ export type UsuarioSACVUncheckedCreateInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVUpdateInput = {
@@ -388,6 +393,7 @@ export type UsuarioSACVUpdateInput = {
   consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVUncheckedUpdateInput = {
@@ -410,6 +416,7 @@ export type UsuarioSACVUncheckedUpdateInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVCreateManyInput = {
@@ -663,6 +670,20 @@ export type UsuarioSACVUpdateOneRequiredWithoutConsentimentosNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UsuarioSACVUpdateToOneWithWhereWithoutConsentimentosInput, Prisma.UsuarioSACVUpdateWithoutConsentimentosInput>, Prisma.UsuarioSACVUncheckedUpdateWithoutConsentimentosInput>
 }
 
+export type UsuarioSACVCreateNestedOneWithoutConvitesTutorInput = {
+  create?: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutConvitesTutorInput, Prisma.UsuarioSACVUncheckedCreateWithoutConvitesTutorInput>
+  connectOrCreate?: Prisma.UsuarioSACVCreateOrConnectWithoutConvitesTutorInput
+  connect?: Prisma.UsuarioSACVWhereUniqueInput
+}
+
+export type UsuarioSACVUpdateOneRequiredWithoutConvitesTutorNestedInput = {
+  create?: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutConvitesTutorInput, Prisma.UsuarioSACVUncheckedCreateWithoutConvitesTutorInput>
+  connectOrCreate?: Prisma.UsuarioSACVCreateOrConnectWithoutConvitesTutorInput
+  upsert?: Prisma.UsuarioSACVUpsertWithoutConvitesTutorInput
+  connect?: Prisma.UsuarioSACVWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UsuarioSACVUpdateToOneWithWhereWithoutConvitesTutorInput, Prisma.UsuarioSACVUpdateWithoutConvitesTutorInput>, Prisma.UsuarioSACVUncheckedUpdateWithoutConvitesTutorInput>
+}
+
 export type UsuarioSACVCreateWithoutContaInput = {
   id?: string
   nome: string
@@ -682,6 +703,7 @@ export type UsuarioSACVCreateWithoutContaInput = {
   consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVUncheckedCreateWithoutContaInput = {
@@ -703,6 +725,7 @@ export type UsuarioSACVUncheckedCreateWithoutContaInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVCreateOrConnectWithoutContaInput = {
@@ -740,6 +763,7 @@ export type UsuarioSACVUpdateWithoutContaInput = {
   consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVUncheckedUpdateWithoutContaInput = {
@@ -761,6 +785,7 @@ export type UsuarioSACVUncheckedUpdateWithoutContaInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVCreateWithoutPerfilInput = {
@@ -782,6 +807,7 @@ export type UsuarioSACVCreateWithoutPerfilInput = {
   consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVUncheckedCreateWithoutPerfilInput = {
@@ -803,6 +829,7 @@ export type UsuarioSACVUncheckedCreateWithoutPerfilInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVCreateOrConnectWithoutPerfilInput = {
@@ -840,6 +867,7 @@ export type UsuarioSACVUpdateWithoutPerfilInput = {
   consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVUncheckedUpdateWithoutPerfilInput = {
@@ -861,6 +889,7 @@ export type UsuarioSACVUncheckedUpdateWithoutPerfilInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVCreateWithoutTutoresInput = {
@@ -882,6 +911,7 @@ export type UsuarioSACVCreateWithoutTutoresInput = {
   consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVUncheckedCreateWithoutTutoresInput = {
@@ -903,6 +933,7 @@ export type UsuarioSACVUncheckedCreateWithoutTutoresInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVCreateOrConnectWithoutTutoresInput = {
@@ -940,6 +971,7 @@ export type UsuarioSACVUpdateWithoutTutoresInput = {
   consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVUncheckedUpdateWithoutTutoresInput = {
@@ -961,6 +993,7 @@ export type UsuarioSACVUncheckedUpdateWithoutTutoresInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVCreateWithoutMedicamentosInput = {
@@ -982,6 +1015,7 @@ export type UsuarioSACVCreateWithoutMedicamentosInput = {
   consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVUncheckedCreateWithoutMedicamentosInput = {
@@ -1003,6 +1037,7 @@ export type UsuarioSACVUncheckedCreateWithoutMedicamentosInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVCreateOrConnectWithoutMedicamentosInput = {
@@ -1040,6 +1075,7 @@ export type UsuarioSACVUpdateWithoutMedicamentosInput = {
   consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVUncheckedUpdateWithoutMedicamentosInput = {
@@ -1061,6 +1097,7 @@ export type UsuarioSACVUncheckedUpdateWithoutMedicamentosInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVCreateWithoutAgendamentosInput = {
@@ -1082,6 +1119,7 @@ export type UsuarioSACVCreateWithoutAgendamentosInput = {
   consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVUncheckedCreateWithoutAgendamentosInput = {
@@ -1103,6 +1141,7 @@ export type UsuarioSACVUncheckedCreateWithoutAgendamentosInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVCreateOrConnectWithoutAgendamentosInput = {
@@ -1140,6 +1179,7 @@ export type UsuarioSACVUpdateWithoutAgendamentosInput = {
   consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVUncheckedUpdateWithoutAgendamentosInput = {
@@ -1161,6 +1201,7 @@ export type UsuarioSACVUncheckedUpdateWithoutAgendamentosInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVCreateWithoutListasInput = {
@@ -1182,6 +1223,7 @@ export type UsuarioSACVCreateWithoutListasInput = {
   consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVUncheckedCreateWithoutListasInput = {
@@ -1203,6 +1245,7 @@ export type UsuarioSACVUncheckedCreateWithoutListasInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVCreateOrConnectWithoutListasInput = {
@@ -1240,6 +1283,7 @@ export type UsuarioSACVUpdateWithoutListasInput = {
   consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVUncheckedUpdateWithoutListasInput = {
@@ -1261,6 +1305,7 @@ export type UsuarioSACVUncheckedUpdateWithoutListasInput = {
   consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVCreateWithoutRegistrosSaudeInput = {
@@ -1282,6 +1327,7 @@ export type UsuarioSACVCreateWithoutRegistrosSaudeInput = {
   listas?: Prisma.ListaCreateNestedManyWithoutUsuarioInput
   consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVUncheckedCreateWithoutRegistrosSaudeInput = {
@@ -1303,6 +1349,7 @@ export type UsuarioSACVUncheckedCreateWithoutRegistrosSaudeInput = {
   listas?: Prisma.ListaUncheckedCreateNestedManyWithoutUsuarioInput
   consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVCreateOrConnectWithoutRegistrosSaudeInput = {
@@ -1340,6 +1387,7 @@ export type UsuarioSACVUpdateWithoutRegistrosSaudeInput = {
   listas?: Prisma.ListaUpdateManyWithoutUsuarioNestedInput
   consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVUncheckedUpdateWithoutRegistrosSaudeInput = {
@@ -1361,6 +1409,7 @@ export type UsuarioSACVUncheckedUpdateWithoutRegistrosSaudeInput = {
   listas?: Prisma.ListaUncheckedUpdateManyWithoutUsuarioNestedInput
   consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVCreateWithoutAssinaturasInput = {
@@ -1382,6 +1431,7 @@ export type UsuarioSACVCreateWithoutAssinaturasInput = {
   listas?: Prisma.ListaCreateNestedManyWithoutUsuarioInput
   consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVUncheckedCreateWithoutAssinaturasInput = {
@@ -1403,6 +1453,7 @@ export type UsuarioSACVUncheckedCreateWithoutAssinaturasInput = {
   listas?: Prisma.ListaUncheckedCreateNestedManyWithoutUsuarioInput
   consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVCreateOrConnectWithoutAssinaturasInput = {
@@ -1440,6 +1491,7 @@ export type UsuarioSACVUpdateWithoutAssinaturasInput = {
   listas?: Prisma.ListaUpdateManyWithoutUsuarioNestedInput
   consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVUncheckedUpdateWithoutAssinaturasInput = {
@@ -1461,6 +1513,7 @@ export type UsuarioSACVUncheckedUpdateWithoutAssinaturasInput = {
   listas?: Prisma.ListaUncheckedUpdateManyWithoutUsuarioNestedInput
   consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVCreateWithoutConsentimentosInput = {
@@ -1482,6 +1535,7 @@ export type UsuarioSACVCreateWithoutConsentimentosInput = {
   listas?: Prisma.ListaCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVUncheckedCreateWithoutConsentimentosInput = {
@@ -1503,6 +1557,7 @@ export type UsuarioSACVUncheckedCreateWithoutConsentimentosInput = {
   listas?: Prisma.ListaUncheckedCreateNestedManyWithoutUsuarioInput
   assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioSACVCreateOrConnectWithoutConsentimentosInput = {
@@ -1540,6 +1595,7 @@ export type UsuarioSACVUpdateWithoutConsentimentosInput = {
   listas?: Prisma.ListaUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioSACVUncheckedUpdateWithoutConsentimentosInput = {
@@ -1561,6 +1617,111 @@ export type UsuarioSACVUncheckedUpdateWithoutConsentimentosInput = {
   listas?: Prisma.ListaUncheckedUpdateManyWithoutUsuarioNestedInput
   assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
   registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
+}
+
+export type UsuarioSACVCreateWithoutConvitesTutorInput = {
+  id?: string
+  nome: string
+  nomePreferido?: string | null
+  dataNascimento?: Date | string | null
+  telefone?: string | null
+  modoUso?: $Enums.ModoUso
+  nivelAcompanhamento?: $Enums.NivelAcompanhamento
+  ativo?: boolean
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
+  perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
+  medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
+  agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
+  listas?: Prisma.ListaCreateNestedManyWithoutUsuarioInput
+  consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
+  assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
+  registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+}
+
+export type UsuarioSACVUncheckedCreateWithoutConvitesTutorInput = {
+  id?: string
+  contaId?: string | null
+  nome: string
+  nomePreferido?: string | null
+  dataNascimento?: Date | string | null
+  telefone?: string | null
+  modoUso?: $Enums.ModoUso
+  nivelAcompanhamento?: $Enums.NivelAcompanhamento
+  ativo?: boolean
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
+  medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
+  agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
+  listas?: Prisma.ListaUncheckedCreateNestedManyWithoutUsuarioInput
+  consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
+  assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
+  registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+}
+
+export type UsuarioSACVCreateOrConnectWithoutConvitesTutorInput = {
+  where: Prisma.UsuarioSACVWhereUniqueInput
+  create: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutConvitesTutorInput, Prisma.UsuarioSACVUncheckedCreateWithoutConvitesTutorInput>
+}
+
+export type UsuarioSACVUpsertWithoutConvitesTutorInput = {
+  update: Prisma.XOR<Prisma.UsuarioSACVUpdateWithoutConvitesTutorInput, Prisma.UsuarioSACVUncheckedUpdateWithoutConvitesTutorInput>
+  create: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutConvitesTutorInput, Prisma.UsuarioSACVUncheckedCreateWithoutConvitesTutorInput>
+  where?: Prisma.UsuarioSACVWhereInput
+}
+
+export type UsuarioSACVUpdateToOneWithWhereWithoutConvitesTutorInput = {
+  where?: Prisma.UsuarioSACVWhereInput
+  data: Prisma.XOR<Prisma.UsuarioSACVUpdateWithoutConvitesTutorInput, Prisma.UsuarioSACVUncheckedUpdateWithoutConvitesTutorInput>
+}
+
+export type UsuarioSACVUpdateWithoutConvitesTutorInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  nomePreferido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  telefone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modoUso?: Prisma.EnumModoUsoFieldUpdateOperationsInput | $Enums.ModoUso
+  nivelAcompanhamento?: Prisma.EnumNivelAcompanhamentoFieldUpdateOperationsInput | $Enums.NivelAcompanhamento
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
+  perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
+  medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
+  agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
+  listas?: Prisma.ListaUpdateManyWithoutUsuarioNestedInput
+  consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
+  assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
+  registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+}
+
+export type UsuarioSACVUncheckedUpdateWithoutConvitesTutorInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  contaId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  nomePreferido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  telefone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modoUso?: Prisma.EnumModoUsoFieldUpdateOperationsInput | $Enums.ModoUso
+  nivelAcompanhamento?: Prisma.EnumNivelAcompanhamentoFieldUpdateOperationsInput | $Enums.NivelAcompanhamento
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
+  medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
+  agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
+  listas?: Prisma.ListaUncheckedUpdateManyWithoutUsuarioNestedInput
+  consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
+  assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
+  registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 
@@ -1576,6 +1737,7 @@ export type UsuarioSACVCountOutputType = {
   consentimentos: number
   assinaturas: number
   registrosSaude: number
+  convitesTutor: number
 }
 
 export type UsuarioSACVCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1586,6 +1748,7 @@ export type UsuarioSACVCountOutputTypeSelect<ExtArgs extends runtime.Types.Exten
   consentimentos?: boolean | UsuarioSACVCountOutputTypeCountConsentimentosArgs
   assinaturas?: boolean | UsuarioSACVCountOutputTypeCountAssinaturasArgs
   registrosSaude?: boolean | UsuarioSACVCountOutputTypeCountRegistrosSaudeArgs
+  convitesTutor?: boolean | UsuarioSACVCountOutputTypeCountConvitesTutorArgs
 }
 
 /**
@@ -1647,6 +1810,13 @@ export type UsuarioSACVCountOutputTypeCountRegistrosSaudeArgs<ExtArgs extends ru
   where?: Prisma.RegistroSaudeWhereInput
 }
 
+/**
+ * UsuarioSACVCountOutputType without action
+ */
+export type UsuarioSACVCountOutputTypeCountConvitesTutorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ConviteTutorWhereInput
+}
+
 
 export type UsuarioSACVSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1669,6 +1839,7 @@ export type UsuarioSACVSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   consentimentos?: boolean | Prisma.UsuarioSACV$consentimentosArgs<ExtArgs>
   assinaturas?: boolean | Prisma.UsuarioSACV$assinaturasArgs<ExtArgs>
   registrosSaude?: boolean | Prisma.UsuarioSACV$registrosSaudeArgs<ExtArgs>
+  convitesTutor?: boolean | Prisma.UsuarioSACV$convitesTutorArgs<ExtArgs>
   _count?: boolean | Prisma.UsuarioSACVCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["usuarioSACV"]>
 
@@ -1727,6 +1898,7 @@ export type UsuarioSACVInclude<ExtArgs extends runtime.Types.Extensions.Internal
   consentimentos?: boolean | Prisma.UsuarioSACV$consentimentosArgs<ExtArgs>
   assinaturas?: boolean | Prisma.UsuarioSACV$assinaturasArgs<ExtArgs>
   registrosSaude?: boolean | Prisma.UsuarioSACV$registrosSaudeArgs<ExtArgs>
+  convitesTutor?: boolean | Prisma.UsuarioSACV$convitesTutorArgs<ExtArgs>
   _count?: boolean | Prisma.UsuarioSACVCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UsuarioSACVIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1748,6 +1920,7 @@ export type $UsuarioSACVPayload<ExtArgs extends runtime.Types.Extensions.Interna
     consentimentos: Prisma.$ConsentimentoPayload<ExtArgs>[]
     assinaturas: Prisma.$AssinaturaPayload<ExtArgs>[]
     registrosSaude: Prisma.$RegistroSaudePayload<ExtArgs>[]
+    convitesTutor: Prisma.$ConviteTutorPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2164,6 +2337,7 @@ export interface Prisma__UsuarioSACVClient<T, Null = never, ExtArgs extends runt
   consentimentos<T extends Prisma.UsuarioSACV$consentimentosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioSACV$consentimentosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConsentimentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   assinaturas<T extends Prisma.UsuarioSACV$assinaturasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioSACV$assinaturasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AssinaturaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   registrosSaude<T extends Prisma.UsuarioSACV$registrosSaudeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioSACV$registrosSaudeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RegistroSaudePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  convitesTutor<T extends Prisma.UsuarioSACV$convitesTutorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioSACV$convitesTutorArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConviteTutorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2808,6 +2982,30 @@ export type UsuarioSACV$registrosSaudeArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.RegistroSaudeScalarFieldEnum | Prisma.RegistroSaudeScalarFieldEnum[]
+}
+
+/**
+ * UsuarioSACV.convitesTutor
+ */
+export type UsuarioSACV$convitesTutorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ConviteTutor
+   */
+  select?: Prisma.ConviteTutorSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ConviteTutor
+   */
+  omit?: Prisma.ConviteTutorOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ConviteTutorInclude<ExtArgs> | null
+  where?: Prisma.ConviteTutorWhereInput
+  orderBy?: Prisma.ConviteTutorOrderByWithRelationInput | Prisma.ConviteTutorOrderByWithRelationInput[]
+  cursor?: Prisma.ConviteTutorWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ConviteTutorScalarFieldEnum | Prisma.ConviteTutorScalarFieldEnum[]
 }
 
 /**

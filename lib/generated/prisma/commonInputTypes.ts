@@ -277,6 +277,23 @@ export type EnumStatusAssinaturaWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumStatusAssinaturaFilter<$PrismaModel>
 }
 
+export type EnumStatusConviteTutorFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusConviteTutor | Prisma.EnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusConviteTutor[] | Prisma.ListEnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusConviteTutor[] | Prisma.ListEnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusConviteTutorFilter<$PrismaModel> | $Enums.StatusConviteTutor
+}
+
+export type EnumStatusConviteTutorWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusConviteTutor | Prisma.EnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusConviteTutor[] | Prisma.ListEnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusConviteTutor[] | Prisma.ListEnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusConviteTutorWithAggregatesFilter<$PrismaModel> | $Enums.StatusConviteTutor
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStatusConviteTutorFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStatusConviteTutorFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -551,6 +568,23 @@ export type NestedEnumStatusAssinaturaWithAggregatesFilter<$PrismaModel = never>
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumStatusAssinaturaFilter<$PrismaModel>
   _max?: Prisma.NestedEnumStatusAssinaturaFilter<$PrismaModel>
+}
+
+export type NestedEnumStatusConviteTutorFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusConviteTutor | Prisma.EnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusConviteTutor[] | Prisma.ListEnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusConviteTutor[] | Prisma.ListEnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusConviteTutorFilter<$PrismaModel> | $Enums.StatusConviteTutor
+}
+
+export type NestedEnumStatusConviteTutorWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusConviteTutor | Prisma.EnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusConviteTutor[] | Prisma.ListEnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusConviteTutor[] | Prisma.ListEnumStatusConviteTutorFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusConviteTutorWithAggregatesFilter<$PrismaModel> | $Enums.StatusConviteTutor
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStatusConviteTutorFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStatusConviteTutorFilter<$PrismaModel>
 }
 
 

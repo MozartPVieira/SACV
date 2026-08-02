@@ -633,3 +633,111 @@
     justify-self:start;
   }
 }
+
+/* Convites da equipe de cuidados */
+.team-heading-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.invite-form{
+  display:grid;
+  gap:16px;
+  padding:20px;
+  border:1px solid #ddd4eb;
+  border-radius:16px;
+  background:#faf8fd;
+}
+
+.invite-form label{
+  display:grid;
+  gap:7px;
+  color:#392f45;
+  font-weight:700;
+}
+
+.invite-form input,
+.invite-form select{
+  width:100%;
+  border:1px solid #d8d1e2;
+  border-radius:13px;
+  padding:12px 13px;
+  background:#ffffff;
+  color:#241d2d;
+  font:inherit;
+}
+
+.invite-form input:focus,
+.invite-form select:focus{
+  outline:3px solid rgba(109,70,199,.16);
+  border-color:#6d46c7;
+}
+
+.invite-permissions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 20px;
+  padding:14px;
+  border-radius:13px;
+  background:#ffffff;
+}
+
+.invite-permissions label{
+  display:flex;
+  align-items:center;
+  grid-template-columns:none;
+  gap:8px;
+  font-weight:650;
+}
+
+.invite-permissions input{
+  width:17px;
+  height:17px;
+  accent-color:#6d46c7;
+}
+
+.invite-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+}
+
+.pending-card{
+  border-style:dashed;
+  background:#fdfbf6;
+}
+
+.pending-avatar{
+  background:#fff1cb;
+  color:#8a6500;
+}
+
+.pending-status{
+  padding:6px 9px;
+  border-radius:999px;
+  background:#fff1cb;
+  color:#805d00;
+  font-size:11px;
+  font-weight:850;
+}
+
+@media(max-width:760px){
+  .team-heading-actions{
+    align-items:flex-end;
+    flex-direction:column;
+  }
+
+  .invite-actions{
+    flex-direction:column-reverse;
+  }
+
+  .invite-actions button{
+    width:100%;
+  }
+
+  .pending-status{
+    grid-column:2;
+    justify-self:start;
+  }
+}
