@@ -741,3 +741,141 @@
     justify-self:start;
   }
 }
+
+/* Página de aceitação do convite */
+.invite-page{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:32px 18px;
+  background:
+    radial-gradient(circle at top left, #eee7fb 0, transparent 34%),
+    #f6f5f9;
+}
+
+.invite-accept-card{
+  width:min(680px, 100%);
+  display:grid;
+  gap:22px;
+  padding:34px;
+  border:1px solid #e1dbe8;
+  border-radius:24px;
+  background:#ffffff;
+  box-shadow:0 22px 60px rgba(48,35,64,.1);
+}
+
+.invite-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.invite-brand > span{
+  padding:7px 10px;
+  border-radius:999px;
+  background:#6d46c7;
+  color:#ffffff;
+  font-size:12px;
+  font-weight:850;
+}
+
+.invite-brand div{
+  display:grid;
+}
+
+.invite-brand strong{
+  color:#21182d;
+}
+
+.invite-brand small{
+  color:#756d80;
+}
+
+.invite-accept-card h1{
+  margin:0;
+  color:#21182d;
+  font-size:30px;
+  line-height:1.18;
+}
+
+.invite-summary{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.invite-summary div{
+  display:grid;
+  gap:4px;
+  padding:14px;
+  border-radius:14px;
+  background:#f8f6fb;
+}
+
+.invite-summary span{
+  color:#756d80;
+  font-size:12px;
+}
+
+.invite-summary strong{
+  color:#30263b;
+}
+
+.invite-accept-form,
+.existing-account{
+  display:grid;
+  gap:16px;
+  padding:20px;
+  border:1px solid #e3ddea;
+  border-radius:16px;
+  background:#faf9fc;
+}
+
+.invite-accept-form h2,
+.existing-account h2{
+  margin:0;
+  color:#21182d;
+}
+
+.invite-accept-form label{
+  display:grid;
+  gap:7px;
+  color:#392f45;
+  font-weight:700;
+}
+
+.invite-accept-form input{
+  width:100%;
+  border:1px solid #d8d1e2;
+  border-radius:13px;
+  padding:12px 13px;
+  background:#ffffff;
+  color:#241d2d;
+  font:inherit;
+}
+
+.invite-accept-form input:disabled{
+  background:#f0edf4;
+  color:#71687b;
+}
+
+.invite-link{
+  width:max-content;
+  color:#6037bb;
+  font-size:12px;
+  font-weight:800;
+}
+
+@media(max-width:600px){
+  .invite-accept-card{
+    padding:24px 20px;
+  }
+
+  .invite-accept-card h1{
+    font-size:24px;
+  }
+
+  .invite-summary{
+    grid-template-columns:1fr;
+  }
+}

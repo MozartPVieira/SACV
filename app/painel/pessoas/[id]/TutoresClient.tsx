@@ -18,6 +18,7 @@ type TutorVinculado = {
 
 type ConvitePendente = {
   id: string;
+  token: string;
   convidadoNome: string;
   convidadoEmail: string;
   relacao: string | null;
@@ -331,6 +332,7 @@ export default function TutoresClient({
               </div>
 
               <small>{convite.convidadoEmail}</small>
+              <a className="invite-link" href={`/convite/${convite.token}`} target="_blank" rel="noreferrer">Abrir convite</a>
               {convite.relacao && <small>{convite.relacao}</small>}
 
               <div className="permission-list">

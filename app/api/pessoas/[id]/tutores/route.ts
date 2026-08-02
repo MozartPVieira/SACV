@@ -113,6 +113,7 @@ export async function GET(
       },
       select: {
         id: true,
+        token: true,
         convidadoNome: true,
         convidadoEmail: true,
         relacao: true,
