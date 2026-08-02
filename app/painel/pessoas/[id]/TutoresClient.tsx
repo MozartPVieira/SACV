@@ -1,6 +1,8 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import TutorActions from "./TutorActions";
+import ConviteActions from "./ConviteActions";
 
 type TutorVinculado = {
   vinculoId: string;
@@ -48,6 +50,7 @@ export default function TutoresClient({
 }) {
   const [tutores, setTutores] = useState<TutorVinculado[]>([]);
   const [convites, setConvites] = useState<ConvitePendente[]>([]);
+  const [podeGerenciarEquipe, setPodeGerenciarEquipe] = useState(false);
   const [carregando, setCarregando] = useState(true);
   const [salvando, setSalvando] = useState(false);
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
@@ -74,6 +77,7 @@ export default function TutoresClient({
 
       setTutores(data.tutores);
       setConvites(data.convites ?? []);
+      setPodeGerenciarEquipe(Boolean(data.podeGerenciarEquipe));
     } catch (error) {
       setErro(
         error instanceof Error
@@ -144,6 +148,7 @@ export default function TutoresClient({
             {tutores.length + convites.length}
           </span>
 
+          {podeGerenciarEquipe && (
           <button
             type="button"
             className="primary-button"
@@ -151,6 +156,7 @@ export default function TutoresClient({
           >
             {mostrarFormulario ? "Fechar" : "Convidar pessoa"}
           </button>
+          )}
         </div>
       </div>
 
@@ -316,6 +322,14 @@ export default function TutoresClient({
             <span className={tutor.ativo ? "active-status" : "inactive-status"}>
               {tutor.ativo ? "Ativo" : "Inativo"}
             </span>
+
+            {podeGerenciarEquipe && (
+            <TutorActions
+              pessoaId={pessoaId}
+              tutor={tutor}
+              onUpdated={carregar}
+            />
+            )}
           </article>
         ))}
 
@@ -343,6 +357,16 @@ export default function TutoresClient({
             </div>
 
             <span className="pending-status">Convite pendente</span>
+
+            {podeGerenciarEquipe && (
+            <ConviteActions
+              pessoaId={pessoaId}
+              conviteId={convite.id}
+              token={convite.token}
+              nome={convite.convidadoNome}
+              onUpdated={carregar}
+            />
+            )}
           </article>
         ))}
       </div>

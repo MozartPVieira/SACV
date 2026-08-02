@@ -134,6 +134,7 @@ model VinculoTutorUsuario {
   tutorId       String
   usuarioId     String
   principal     Boolean     @default(false)
+  ativo         Boolean     @default(true)
   podeEditar    Boolean     @default(false)
   recebeResumo  Boolean     @default(true)
   recebeAlertas Boolean     @default(true)

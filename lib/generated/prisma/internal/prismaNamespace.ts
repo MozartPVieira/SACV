@@ -2169,6 +2169,7 @@ export const VinculoTutorUsuarioScalarFieldEnum = {
   tutorId: 'tutorId',
   usuarioId: 'usuarioId',
   principal: 'principal',
+  ativo: 'ativo',
   podeEditar: 'podeEditar',
   recebeResumo: 'recebeResumo',
   recebeAlertas: 'recebeAlertas'

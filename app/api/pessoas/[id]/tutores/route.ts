@@ -42,6 +42,7 @@ export async function GET(
       },
       select: {
         id: true,
+        contaId: true,
         nome: true,
         nomePreferido: true,
         tutores: {
@@ -79,7 +80,7 @@ export async function GET(
         nome: vinculo.tutor.conta.nome,
         email: vinculo.tutor.conta.email,
         telefone: vinculo.tutor.conta.telefone,
-        ativo: vinculo.tutor.conta.ativo,
+        ativo: vinculo.ativo,
         principal: vinculo.principal,
         podeEditar: vinculo.podeEditar,
         recebeResumo: vinculo.recebeResumo,
@@ -130,6 +131,15 @@ export async function GET(
       },
     });
 
+    const vinculoDaSessao = pessoa.tutores.find(
+      (vinculo) =>
+        vinculo.tutor.conta.id === session.contaId,
+    );
+
+    const podeGerenciarEquipe =
+      pessoa.contaId === session.contaId ||
+      vinculoDaSessao?.principal === true;
+
     return NextResponse.json({
       pessoa: {
         id: pessoa.id,
@@ -138,6 +148,7 @@ export async function GET(
       },
       tutores,
       convites,
+      podeGerenciarEquipe,
     });
   } catch (error) {
     console.error("Falha ao consultar tutores do SACV", error);
@@ -237,8 +248,7 @@ export async function POST(
 
     const podeGerenciar =
       pessoa.contaId === session.contaId ||
-      vinculoAtual?.principal === true ||
-      vinculoAtual?.podeEditar === true;
+      vinculoAtual?.principal === true;
 
     if (!podeGerenciar) {
       return NextResponse.json(
@@ -327,4 +337,7 @@ export async function POST(
     );
   }
 }
+
+
+
 

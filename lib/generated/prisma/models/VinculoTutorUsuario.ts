@@ -29,6 +29,7 @@ export type VinculoTutorUsuarioMinAggregateOutputType = {
   tutorId: string | null
   usuarioId: string | null
   principal: boolean | null
+  ativo: boolean | null
   podeEditar: boolean | null
   recebeResumo: boolean | null
   recebeAlertas: boolean | null
@@ -39,6 +40,7 @@ export type VinculoTutorUsuarioMaxAggregateOutputType = {
   tutorId: string | null
   usuarioId: string | null
   principal: boolean | null
+  ativo: boolean | null
   podeEditar: boolean | null
   recebeResumo: boolean | null
   recebeAlertas: boolean | null
@@ -49,6 +51,7 @@ export type VinculoTutorUsuarioCountAggregateOutputType = {
   tutorId: number
   usuarioId: number
   principal: number
+  ativo: number
   podeEditar: number
   recebeResumo: number
   recebeAlertas: number
@@ -61,6 +64,7 @@ export type VinculoTutorUsuarioMinAggregateInputType = {
   tutorId?: true
   usuarioId?: true
   principal?: true
+  ativo?: true
   podeEditar?: true
   recebeResumo?: true
   recebeAlertas?: true
@@ -71,6 +75,7 @@ export type VinculoTutorUsuarioMaxAggregateInputType = {
   tutorId?: true
   usuarioId?: true
   principal?: true
+  ativo?: true
   podeEditar?: true
   recebeResumo?: true
   recebeAlertas?: true
@@ -81,6 +86,7 @@ export type VinculoTutorUsuarioCountAggregateInputType = {
   tutorId?: true
   usuarioId?: true
   principal?: true
+  ativo?: true
   podeEditar?: true
   recebeResumo?: true
   recebeAlertas?: true
@@ -164,6 +170,7 @@ export type VinculoTutorUsuarioGroupByOutputType = {
   tutorId: string
   usuarioId: string
   principal: boolean
+  ativo: boolean
   podeEditar: boolean
   recebeResumo: boolean
   recebeAlertas: boolean
@@ -195,6 +202,7 @@ export type VinculoTutorUsuarioWhereInput = {
   tutorId?: Prisma.StringFilter<"VinculoTutorUsuario"> | string
   usuarioId?: Prisma.StringFilter<"VinculoTutorUsuario"> | string
   principal?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
+  ativo?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
   podeEditar?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
   recebeResumo?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
   recebeAlertas?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
@@ -207,6 +215,7 @@ export type VinculoTutorUsuarioOrderByWithRelationInput = {
   tutorId?: Prisma.SortOrder
   usuarioId?: Prisma.SortOrder
   principal?: Prisma.SortOrder
+  ativo?: Prisma.SortOrder
   podeEditar?: Prisma.SortOrder
   recebeResumo?: Prisma.SortOrder
   recebeAlertas?: Prisma.SortOrder
@@ -223,6 +232,7 @@ export type VinculoTutorUsuarioWhereUniqueInput = Prisma.AtLeast<{
   tutorId?: Prisma.StringFilter<"VinculoTutorUsuario"> | string
   usuarioId?: Prisma.StringFilter<"VinculoTutorUsuario"> | string
   principal?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
+  ativo?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
   podeEditar?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
   recebeResumo?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
   recebeAlertas?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
@@ -235,6 +245,7 @@ export type VinculoTutorUsuarioOrderByWithAggregationInput = {
   tutorId?: Prisma.SortOrder
   usuarioId?: Prisma.SortOrder
   principal?: Prisma.SortOrder
+  ativo?: Prisma.SortOrder
   podeEditar?: Prisma.SortOrder
   recebeResumo?: Prisma.SortOrder
   recebeAlertas?: Prisma.SortOrder
@@ -251,6 +262,7 @@ export type VinculoTutorUsuarioScalarWhereWithAggregatesInput = {
   tutorId?: Prisma.StringWithAggregatesFilter<"VinculoTutorUsuario"> | string
   usuarioId?: Prisma.StringWithAggregatesFilter<"VinculoTutorUsuario"> | string
   principal?: Prisma.BoolWithAggregatesFilter<"VinculoTutorUsuario"> | boolean
+  ativo?: Prisma.BoolWithAggregatesFilter<"VinculoTutorUsuario"> | boolean
   podeEditar?: Prisma.BoolWithAggregatesFilter<"VinculoTutorUsuario"> | boolean
   recebeResumo?: Prisma.BoolWithAggregatesFilter<"VinculoTutorUsuario"> | boolean
   recebeAlertas?: Prisma.BoolWithAggregatesFilter<"VinculoTutorUsuario"> | boolean
@@ -259,6 +271,7 @@ export type VinculoTutorUsuarioScalarWhereWithAggregatesInput = {
 export type VinculoTutorUsuarioCreateInput = {
   id?: string
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -271,6 +284,7 @@ export type VinculoTutorUsuarioUncheckedCreateInput = {
   tutorId: string
   usuarioId: string
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -279,6 +293,7 @@ export type VinculoTutorUsuarioUncheckedCreateInput = {
 export type VinculoTutorUsuarioUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   principal?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   podeEditar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeResumo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeAlertas?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -291,6 +306,7 @@ export type VinculoTutorUsuarioUncheckedUpdateInput = {
   tutorId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioId?: Prisma.StringFieldUpdateOperationsInput | string
   principal?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   podeEditar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeResumo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeAlertas?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -301,6 +317,7 @@ export type VinculoTutorUsuarioCreateManyInput = {
   tutorId: string
   usuarioId: string
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -309,6 +326,7 @@ export type VinculoTutorUsuarioCreateManyInput = {
 export type VinculoTutorUsuarioUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   principal?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   podeEditar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeResumo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeAlertas?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -319,6 +337,7 @@ export type VinculoTutorUsuarioUncheckedUpdateManyInput = {
   tutorId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioId?: Prisma.StringFieldUpdateOperationsInput | string
   principal?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   podeEditar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeResumo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeAlertas?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -344,6 +363,7 @@ export type VinculoTutorUsuarioCountOrderByAggregateInput = {
   tutorId?: Prisma.SortOrder
   usuarioId?: Prisma.SortOrder
   principal?: Prisma.SortOrder
+  ativo?: Prisma.SortOrder
   podeEditar?: Prisma.SortOrder
   recebeResumo?: Prisma.SortOrder
   recebeAlertas?: Prisma.SortOrder
@@ -354,6 +374,7 @@ export type VinculoTutorUsuarioMaxOrderByAggregateInput = {
   tutorId?: Prisma.SortOrder
   usuarioId?: Prisma.SortOrder
   principal?: Prisma.SortOrder
+  ativo?: Prisma.SortOrder
   podeEditar?: Prisma.SortOrder
   recebeResumo?: Prisma.SortOrder
   recebeAlertas?: Prisma.SortOrder
@@ -364,6 +385,7 @@ export type VinculoTutorUsuarioMinOrderByAggregateInput = {
   tutorId?: Prisma.SortOrder
   usuarioId?: Prisma.SortOrder
   principal?: Prisma.SortOrder
+  ativo?: Prisma.SortOrder
   podeEditar?: Prisma.SortOrder
   recebeResumo?: Prisma.SortOrder
   recebeAlertas?: Prisma.SortOrder
@@ -456,6 +478,7 @@ export type VinculoTutorUsuarioUncheckedUpdateManyWithoutTutorNestedInput = {
 export type VinculoTutorUsuarioCreateWithoutUsuarioInput = {
   id?: string
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -466,6 +489,7 @@ export type VinculoTutorUsuarioUncheckedCreateWithoutUsuarioInput = {
   id?: string
   tutorId: string
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -505,6 +529,7 @@ export type VinculoTutorUsuarioScalarWhereInput = {
   tutorId?: Prisma.StringFilter<"VinculoTutorUsuario"> | string
   usuarioId?: Prisma.StringFilter<"VinculoTutorUsuario"> | string
   principal?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
+  ativo?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
   podeEditar?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
   recebeResumo?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
   recebeAlertas?: Prisma.BoolFilter<"VinculoTutorUsuario"> | boolean
@@ -513,6 +538,7 @@ export type VinculoTutorUsuarioScalarWhereInput = {
 export type VinculoTutorUsuarioCreateWithoutTutorInput = {
   id?: string
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -523,6 +549,7 @@ export type VinculoTutorUsuarioUncheckedCreateWithoutTutorInput = {
   id?: string
   usuarioId: string
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -558,6 +585,7 @@ export type VinculoTutorUsuarioCreateManyUsuarioInput = {
   id?: string
   tutorId: string
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -566,6 +594,7 @@ export type VinculoTutorUsuarioCreateManyUsuarioInput = {
 export type VinculoTutorUsuarioUpdateWithoutUsuarioInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   principal?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   podeEditar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeResumo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeAlertas?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -576,6 +605,7 @@ export type VinculoTutorUsuarioUncheckedUpdateWithoutUsuarioInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   tutorId?: Prisma.StringFieldUpdateOperationsInput | string
   principal?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   podeEditar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeResumo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeAlertas?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -585,6 +615,7 @@ export type VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   tutorId?: Prisma.StringFieldUpdateOperationsInput | string
   principal?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   podeEditar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeResumo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeAlertas?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -594,6 +625,7 @@ export type VinculoTutorUsuarioCreateManyTutorInput = {
   id?: string
   usuarioId: string
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -602,6 +634,7 @@ export type VinculoTutorUsuarioCreateManyTutorInput = {
 export type VinculoTutorUsuarioUpdateWithoutTutorInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   principal?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   podeEditar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeResumo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeAlertas?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -612,6 +645,7 @@ export type VinculoTutorUsuarioUncheckedUpdateWithoutTutorInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioId?: Prisma.StringFieldUpdateOperationsInput | string
   principal?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   podeEditar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeResumo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeAlertas?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -621,6 +655,7 @@ export type VinculoTutorUsuarioUncheckedUpdateManyWithoutTutorInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioId?: Prisma.StringFieldUpdateOperationsInput | string
   principal?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   podeEditar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeResumo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   recebeAlertas?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -633,6 +668,7 @@ export type VinculoTutorUsuarioSelect<ExtArgs extends runtime.Types.Extensions.I
   tutorId?: boolean
   usuarioId?: boolean
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -645,6 +681,7 @@ export type VinculoTutorUsuarioSelectCreateManyAndReturn<ExtArgs extends runtime
   tutorId?: boolean
   usuarioId?: boolean
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -657,6 +694,7 @@ export type VinculoTutorUsuarioSelectUpdateManyAndReturn<ExtArgs extends runtime
   tutorId?: boolean
   usuarioId?: boolean
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
@@ -669,12 +707,13 @@ export type VinculoTutorUsuarioSelectScalar = {
   tutorId?: boolean
   usuarioId?: boolean
   principal?: boolean
+  ativo?: boolean
   podeEditar?: boolean
   recebeResumo?: boolean
   recebeAlertas?: boolean
 }
 
-export type VinculoTutorUsuarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tutorId" | "usuarioId" | "principal" | "podeEditar" | "recebeResumo" | "recebeAlertas", ExtArgs["result"]["vinculoTutorUsuario"]>
+export type VinculoTutorUsuarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tutorId" | "usuarioId" | "principal" | "ativo" | "podeEditar" | "recebeResumo" | "recebeAlertas", ExtArgs["result"]["vinculoTutorUsuario"]>
 export type VinculoTutorUsuarioInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tutor?: boolean | Prisma.TutorDefaultArgs<ExtArgs>
   usuario?: boolean | Prisma.UsuarioSACVDefaultArgs<ExtArgs>
@@ -699,6 +738,7 @@ export type $VinculoTutorUsuarioPayload<ExtArgs extends runtime.Types.Extensions
     tutorId: string
     usuarioId: string
     principal: boolean
+    ativo: boolean
     podeEditar: boolean
     recebeResumo: boolean
     recebeAlertas: boolean
@@ -1131,6 +1171,7 @@ export interface VinculoTutorUsuarioFieldRefs {
   readonly tutorId: Prisma.FieldRef<"VinculoTutorUsuario", 'String'>
   readonly usuarioId: Prisma.FieldRef<"VinculoTutorUsuario", 'String'>
   readonly principal: Prisma.FieldRef<"VinculoTutorUsuario", 'Boolean'>
+  readonly ativo: Prisma.FieldRef<"VinculoTutorUsuario", 'Boolean'>
   readonly podeEditar: Prisma.FieldRef<"VinculoTutorUsuario", 'Boolean'>
   readonly recebeResumo: Prisma.FieldRef<"VinculoTutorUsuario", 'Boolean'>
   readonly recebeAlertas: Prisma.FieldRef<"VinculoTutorUsuario", 'Boolean'>

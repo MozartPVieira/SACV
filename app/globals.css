@@ -879,3 +879,106 @@
     grid-template-columns:1fr;
   }
 }
+
+/* Gerenciamento da equipe */
+.team-actions{
+  grid-column:1 / -1;
+  display:grid;
+  justify-items:start;
+  gap:12px;
+  padding-top:12px;
+  border-top:1px solid #e5e0ea;
+}
+
+.principal-note{
+  color:#766c82;
+  font-size:12px;
+  font-weight:650;
+}
+
+.compact-button{
+  padding:8px 12px;
+  font-size:12px;
+}
+
+.team-editor{
+  width:100%;
+  display:grid;
+  gap:14px;
+  padding:16px;
+  border:1px solid #ddd4eb;
+  border-radius:14px;
+  background:#ffffff;
+}
+
+.team-editor > strong{
+  color:#2b2137;
+}
+
+.team-editor-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.danger-button{
+  border:1px solid #e3aaaa;
+  border-radius:12px;
+  padding:10px 14px;
+  background:#fff3f3;
+  color:#a33131;
+  font:inherit;
+  font-weight:750;
+  cursor:pointer;
+}
+
+.danger-button:hover{
+  background:#ffe8e8;
+}
+
+.danger-button:disabled{
+  cursor:not-allowed;
+  opacity:.6;
+}
+
+@media(max-width:760px){
+  .team-editor-buttons{
+    flex-direction:column;
+  }
+
+  .team-editor-buttons button{
+    width:100%;
+  }
+}
+
+/* Ações de convites pendentes */
+.pending-actions{
+  align-items:start;
+}
+
+.pending-action-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.inline-success{
+  margin:0;
+  padding:8px 10px;
+  border-radius:10px;
+  background:#edf7f0;
+  color:#277447;
+  font-size:12px;
+  font-weight:750;
+}
+
+@media(max-width:600px){
+  .pending-action-buttons{
+    width:100%;
+    flex-direction:column;
+  }
+
+  .pending-action-buttons button{
+    width:100%;
+  }
+}
