@@ -1,0 +1,43 @@
+# Dependências
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Arquivos de ambiente e credenciais
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Permitir apenas o modelo sem senhas
+!.env.example
+
+# Vercel
+.vercel/
+
+# Testes e relatórios
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Sistema operacional e editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# TypeScript
+*.tsbuildinfo
+
+# Bancos locais temporários
+*.db
+*.db-journal
+
+# Configuração local do Neon
+.neon
