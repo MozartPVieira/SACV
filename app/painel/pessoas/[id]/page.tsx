@@ -1,4 +1,5 @@
 import PessoaPerfilClient from "./PessoaPerfilClient";
+import TutoresClient from "./TutoresClient";
 
 type PageProps = {
   params: Promise<{
@@ -18,6 +19,7 @@ export default async function PessoaPerfilPage({
       <p>Dados pessoais, rotina e preferências utilizadas pela CIDA.</p>
 
       <PessoaPerfilClient pessoaId={id} />
+      <TutoresClient pessoaId={id} />
     </section>
   );
 }

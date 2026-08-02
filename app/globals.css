@@ -491,3 +491,145 @@
     width:100%;
   }
 }
+
+/* Tutores e rede de apoio */
+.tutores-card{
+  display:grid;
+  gap:18px;
+  max-width:980px;
+  margin-top:20px;
+  padding:26px;
+  border:1px solid #e3ddea;
+  border-radius:20px;
+  background:#ffffff;
+  box-shadow:0 10px 28px rgba(48,35,64,.05);
+}
+
+.tutores-card .section-heading{
+  margin:0;
+}
+
+.tutores-card .section-heading h2{
+  margin:4px 0 5px;
+  color:#21182d;
+  font-size:22px;
+}
+
+.tutores-card .section-heading p{
+  margin:0;
+}
+
+.tutores-list{
+  display:grid;
+  gap:12px;
+}
+
+.tutor-card{
+  display:grid;
+  grid-template-columns:52px minmax(0,1fr) auto;
+  align-items:center;
+  gap:14px;
+  padding:15px;
+  border:1px solid #e5e0ea;
+  border-radius:16px;
+  background:#faf9fc;
+}
+
+.tutor-avatar{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#eee7fb;
+  color:#5935aa;
+  font-size:21px;
+  font-weight:850;
+}
+
+.tutor-info{
+  min-width:0;
+  display:grid;
+  gap:4px;
+}
+
+.tutor-title{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.tutor-title strong{
+  color:#2b2137;
+  font-size:16px;
+}
+
+.tutor-title span{
+  padding:4px 8px;
+  border-radius:999px;
+  background:#eee7fb;
+  color:#5935aa;
+  font-size:11px;
+  font-weight:800;
+}
+
+.tutor-info small{
+  color:#756d80;
+}
+
+.permission-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:6px;
+}
+
+.permission-list span{
+  padding:5px 8px;
+  border-radius:999px;
+  background:#edf7f0;
+  color:#277447;
+  font-size:11px;
+  font-weight:750;
+}
+
+.active-status,
+.inactive-status{
+  padding:6px 9px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:850;
+}
+
+.active-status{
+  background:#edf7f0;
+  color:#277447;
+}
+
+.inactive-status{
+  background:#f5eaea;
+  color:#a23a3a;
+}
+
+@media(max-width:760px){
+  .tutores-card{
+    padding:20px;
+    border-radius:18px;
+  }
+
+  .tutor-card{
+    grid-template-columns:48px minmax(0,1fr);
+  }
+
+  .tutor-avatar{
+    width:48px;
+    height:48px;
+  }
+
+  .active-status,
+  .inactive-status{
+    grid-column:2;
+    justify-self:start;
+  }
+}
