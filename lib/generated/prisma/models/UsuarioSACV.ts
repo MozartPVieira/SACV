@@ -232,6 +232,8 @@ export type UsuarioSACVWhereInput = {
   atualizadoEm?: Prisma.DateTimeFilter<"UsuarioSACV"> | Date | string
   conta?: Prisma.XOR<Prisma.ContaNullableScalarRelationFilter, Prisma.ContaWhereInput> | null
   perfil?: Prisma.XOR<Prisma.PerfilUsuarioNullableScalarRelationFilter, Prisma.PerfilUsuarioWhereInput> | null
+  perfilSaude?: Prisma.XOR<Prisma.PerfilSaudeNullableScalarRelationFilter, Prisma.PerfilSaudeWhereInput> | null
+  redeApoio?: Prisma.MembroRedeApoioListRelationFilter
   tutores?: Prisma.VinculoTutorUsuarioListRelationFilter
   medicamentos?: Prisma.MedicamentoListRelationFilter
   agendamentos?: Prisma.AgendamentoListRelationFilter
@@ -256,6 +258,8 @@ export type UsuarioSACVOrderByWithRelationInput = {
   atualizadoEm?: Prisma.SortOrder
   conta?: Prisma.ContaOrderByWithRelationInput
   perfil?: Prisma.PerfilUsuarioOrderByWithRelationInput
+  perfilSaude?: Prisma.PerfilSaudeOrderByWithRelationInput
+  redeApoio?: Prisma.MembroRedeApoioOrderByRelationAggregateInput
   tutores?: Prisma.VinculoTutorUsuarioOrderByRelationAggregateInput
   medicamentos?: Prisma.MedicamentoOrderByRelationAggregateInput
   agendamentos?: Prisma.AgendamentoOrderByRelationAggregateInput
@@ -283,6 +287,8 @@ export type UsuarioSACVWhereUniqueInput = Prisma.AtLeast<{
   atualizadoEm?: Prisma.DateTimeFilter<"UsuarioSACV"> | Date | string
   conta?: Prisma.XOR<Prisma.ContaNullableScalarRelationFilter, Prisma.ContaWhereInput> | null
   perfil?: Prisma.XOR<Prisma.PerfilUsuarioNullableScalarRelationFilter, Prisma.PerfilUsuarioWhereInput> | null
+  perfilSaude?: Prisma.XOR<Prisma.PerfilSaudeNullableScalarRelationFilter, Prisma.PerfilSaudeWhereInput> | null
+  redeApoio?: Prisma.MembroRedeApoioListRelationFilter
   tutores?: Prisma.VinculoTutorUsuarioListRelationFilter
   medicamentos?: Prisma.MedicamentoListRelationFilter
   agendamentos?: Prisma.AgendamentoListRelationFilter
@@ -340,6 +346,8 @@ export type UsuarioSACVCreateInput = {
   atualizadoEm?: Date | string
   conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
   perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
@@ -363,6 +371,8 @@ export type UsuarioSACVUncheckedCreateInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -386,6 +396,8 @@ export type UsuarioSACVUpdateInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
   perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
@@ -409,6 +421,8 @@ export type UsuarioSACVUncheckedUpdateInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -570,6 +584,20 @@ export type UsuarioSACVUpdateOneRequiredWithoutPerfilNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UsuarioSACVUpdateToOneWithWhereWithoutPerfilInput, Prisma.UsuarioSACVUpdateWithoutPerfilInput>, Prisma.UsuarioSACVUncheckedUpdateWithoutPerfilInput>
 }
 
+export type UsuarioSACVCreateNestedOneWithoutPerfilSaudeInput = {
+  create?: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutPerfilSaudeInput, Prisma.UsuarioSACVUncheckedCreateWithoutPerfilSaudeInput>
+  connectOrCreate?: Prisma.UsuarioSACVCreateOrConnectWithoutPerfilSaudeInput
+  connect?: Prisma.UsuarioSACVWhereUniqueInput
+}
+
+export type UsuarioSACVUpdateOneRequiredWithoutPerfilSaudeNestedInput = {
+  create?: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutPerfilSaudeInput, Prisma.UsuarioSACVUncheckedCreateWithoutPerfilSaudeInput>
+  connectOrCreate?: Prisma.UsuarioSACVCreateOrConnectWithoutPerfilSaudeInput
+  upsert?: Prisma.UsuarioSACVUpsertWithoutPerfilSaudeInput
+  connect?: Prisma.UsuarioSACVWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UsuarioSACVUpdateToOneWithWhereWithoutPerfilSaudeInput, Prisma.UsuarioSACVUpdateWithoutPerfilSaudeInput>, Prisma.UsuarioSACVUncheckedUpdateWithoutPerfilSaudeInput>
+}
+
 export type UsuarioSACVCreateNestedOneWithoutTutoresInput = {
   create?: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutTutoresInput, Prisma.UsuarioSACVUncheckedCreateWithoutTutoresInput>
   connectOrCreate?: Prisma.UsuarioSACVCreateOrConnectWithoutTutoresInput
@@ -582,6 +610,20 @@ export type UsuarioSACVUpdateOneRequiredWithoutTutoresNestedInput = {
   upsert?: Prisma.UsuarioSACVUpsertWithoutTutoresInput
   connect?: Prisma.UsuarioSACVWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UsuarioSACVUpdateToOneWithWhereWithoutTutoresInput, Prisma.UsuarioSACVUpdateWithoutTutoresInput>, Prisma.UsuarioSACVUncheckedUpdateWithoutTutoresInput>
+}
+
+export type UsuarioSACVCreateNestedOneWithoutRedeApoioInput = {
+  create?: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutRedeApoioInput, Prisma.UsuarioSACVUncheckedCreateWithoutRedeApoioInput>
+  connectOrCreate?: Prisma.UsuarioSACVCreateOrConnectWithoutRedeApoioInput
+  connect?: Prisma.UsuarioSACVWhereUniqueInput
+}
+
+export type UsuarioSACVUpdateOneRequiredWithoutRedeApoioNestedInput = {
+  create?: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutRedeApoioInput, Prisma.UsuarioSACVUncheckedCreateWithoutRedeApoioInput>
+  connectOrCreate?: Prisma.UsuarioSACVCreateOrConnectWithoutRedeApoioInput
+  upsert?: Prisma.UsuarioSACVUpsertWithoutRedeApoioInput
+  connect?: Prisma.UsuarioSACVWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UsuarioSACVUpdateToOneWithWhereWithoutRedeApoioInput, Prisma.UsuarioSACVUpdateWithoutRedeApoioInput>, Prisma.UsuarioSACVUncheckedUpdateWithoutRedeApoioInput>
 }
 
 export type UsuarioSACVCreateNestedOneWithoutMedicamentosInput = {
@@ -696,6 +738,8 @@ export type UsuarioSACVCreateWithoutContaInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
@@ -718,6 +762,8 @@ export type UsuarioSACVUncheckedCreateWithoutContaInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -756,6 +802,8 @@ export type UsuarioSACVUpdateWithoutContaInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
@@ -778,6 +826,8 @@ export type UsuarioSACVUncheckedUpdateWithoutContaInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -800,6 +850,8 @@ export type UsuarioSACVCreateWithoutPerfilInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
@@ -822,6 +874,8 @@ export type UsuarioSACVUncheckedCreateWithoutPerfilInput = {
   ativo?: boolean
   criadoEm?: Date | string
   atualizadoEm?: Date | string
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -860,6 +914,8 @@ export type UsuarioSACVUpdateWithoutPerfilInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
@@ -882,6 +938,120 @@ export type UsuarioSACVUncheckedUpdateWithoutPerfilInput = {
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
+  tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
+  medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
+  agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
+  listas?: Prisma.ListaUncheckedUpdateManyWithoutUsuarioNestedInput
+  consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
+  assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
+  registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
+}
+
+export type UsuarioSACVCreateWithoutPerfilSaudeInput = {
+  id?: string
+  nome: string
+  nomePreferido?: string | null
+  dataNascimento?: Date | string | null
+  telefone?: string | null
+  modoUso?: $Enums.ModoUso
+  nivelAcompanhamento?: $Enums.NivelAcompanhamento
+  ativo?: boolean
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
+  perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
+  tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
+  medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
+  agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
+  listas?: Prisma.ListaCreateNestedManyWithoutUsuarioInput
+  consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
+  assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
+  registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
+}
+
+export type UsuarioSACVUncheckedCreateWithoutPerfilSaudeInput = {
+  id?: string
+  contaId?: string | null
+  nome: string
+  nomePreferido?: string | null
+  dataNascimento?: Date | string | null
+  telefone?: string | null
+  modoUso?: $Enums.ModoUso
+  nivelAcompanhamento?: $Enums.NivelAcompanhamento
+  ativo?: boolean
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
+  tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
+  medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
+  agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
+  listas?: Prisma.ListaUncheckedCreateNestedManyWithoutUsuarioInput
+  consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
+  assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
+  registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
+}
+
+export type UsuarioSACVCreateOrConnectWithoutPerfilSaudeInput = {
+  where: Prisma.UsuarioSACVWhereUniqueInput
+  create: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutPerfilSaudeInput, Prisma.UsuarioSACVUncheckedCreateWithoutPerfilSaudeInput>
+}
+
+export type UsuarioSACVUpsertWithoutPerfilSaudeInput = {
+  update: Prisma.XOR<Prisma.UsuarioSACVUpdateWithoutPerfilSaudeInput, Prisma.UsuarioSACVUncheckedUpdateWithoutPerfilSaudeInput>
+  create: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutPerfilSaudeInput, Prisma.UsuarioSACVUncheckedCreateWithoutPerfilSaudeInput>
+  where?: Prisma.UsuarioSACVWhereInput
+}
+
+export type UsuarioSACVUpdateToOneWithWhereWithoutPerfilSaudeInput = {
+  where?: Prisma.UsuarioSACVWhereInput
+  data: Prisma.XOR<Prisma.UsuarioSACVUpdateWithoutPerfilSaudeInput, Prisma.UsuarioSACVUncheckedUpdateWithoutPerfilSaudeInput>
+}
+
+export type UsuarioSACVUpdateWithoutPerfilSaudeInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  nomePreferido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  telefone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modoUso?: Prisma.EnumModoUsoFieldUpdateOperationsInput | $Enums.ModoUso
+  nivelAcompanhamento?: Prisma.EnumNivelAcompanhamentoFieldUpdateOperationsInput | $Enums.NivelAcompanhamento
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
+  perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
+  tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
+  medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
+  agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
+  listas?: Prisma.ListaUpdateManyWithoutUsuarioNestedInput
+  consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
+  assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
+  registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
+}
+
+export type UsuarioSACVUncheckedUpdateWithoutPerfilSaudeInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  contaId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  nomePreferido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  telefone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modoUso?: Prisma.EnumModoUsoFieldUpdateOperationsInput | $Enums.ModoUso
+  nivelAcompanhamento?: Prisma.EnumNivelAcompanhamentoFieldUpdateOperationsInput | $Enums.NivelAcompanhamento
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -905,6 +1075,8 @@ export type UsuarioSACVCreateWithoutTutoresInput = {
   atualizadoEm?: Date | string
   conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
   perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
   listas?: Prisma.ListaCreateNestedManyWithoutUsuarioInput
@@ -927,6 +1099,8 @@ export type UsuarioSACVUncheckedCreateWithoutTutoresInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
   listas?: Prisma.ListaUncheckedCreateNestedManyWithoutUsuarioInput
@@ -965,6 +1139,8 @@ export type UsuarioSACVUpdateWithoutTutoresInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
   perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
   listas?: Prisma.ListaUpdateManyWithoutUsuarioNestedInput
@@ -987,6 +1163,120 @@ export type UsuarioSACVUncheckedUpdateWithoutTutoresInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
+  medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
+  agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
+  listas?: Prisma.ListaUncheckedUpdateManyWithoutUsuarioNestedInput
+  consentimentos?: Prisma.ConsentimentoUncheckedUpdateManyWithoutUsuarioNestedInput
+  assinaturas?: Prisma.AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
+  registrosSaude?: Prisma.RegistroSaudeUncheckedUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedUpdateManyWithoutUsuarioNestedInput
+}
+
+export type UsuarioSACVCreateWithoutRedeApoioInput = {
+  id?: string
+  nome: string
+  nomePreferido?: string | null
+  dataNascimento?: Date | string | null
+  telefone?: string | null
+  modoUso?: $Enums.ModoUso
+  nivelAcompanhamento?: $Enums.NivelAcompanhamento
+  ativo?: boolean
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
+  perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
+  medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
+  agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
+  listas?: Prisma.ListaCreateNestedManyWithoutUsuarioInput
+  consentimentos?: Prisma.ConsentimentoCreateNestedManyWithoutUsuarioInput
+  assinaturas?: Prisma.AssinaturaCreateNestedManyWithoutUsuarioInput
+  registrosSaude?: Prisma.RegistroSaudeCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorCreateNestedManyWithoutUsuarioInput
+}
+
+export type UsuarioSACVUncheckedCreateWithoutRedeApoioInput = {
+  id?: string
+  contaId?: string | null
+  nome: string
+  nomePreferido?: string | null
+  dataNascimento?: Date | string | null
+  telefone?: string | null
+  modoUso?: $Enums.ModoUso
+  nivelAcompanhamento?: $Enums.NivelAcompanhamento
+  ativo?: boolean
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
+  medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
+  agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
+  listas?: Prisma.ListaUncheckedCreateNestedManyWithoutUsuarioInput
+  consentimentos?: Prisma.ConsentimentoUncheckedCreateNestedManyWithoutUsuarioInput
+  assinaturas?: Prisma.AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
+  registrosSaude?: Prisma.RegistroSaudeUncheckedCreateNestedManyWithoutUsuarioInput
+  convitesTutor?: Prisma.ConviteTutorUncheckedCreateNestedManyWithoutUsuarioInput
+}
+
+export type UsuarioSACVCreateOrConnectWithoutRedeApoioInput = {
+  where: Prisma.UsuarioSACVWhereUniqueInput
+  create: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutRedeApoioInput, Prisma.UsuarioSACVUncheckedCreateWithoutRedeApoioInput>
+}
+
+export type UsuarioSACVUpsertWithoutRedeApoioInput = {
+  update: Prisma.XOR<Prisma.UsuarioSACVUpdateWithoutRedeApoioInput, Prisma.UsuarioSACVUncheckedUpdateWithoutRedeApoioInput>
+  create: Prisma.XOR<Prisma.UsuarioSACVCreateWithoutRedeApoioInput, Prisma.UsuarioSACVUncheckedCreateWithoutRedeApoioInput>
+  where?: Prisma.UsuarioSACVWhereInput
+}
+
+export type UsuarioSACVUpdateToOneWithWhereWithoutRedeApoioInput = {
+  where?: Prisma.UsuarioSACVWhereInput
+  data: Prisma.XOR<Prisma.UsuarioSACVUpdateWithoutRedeApoioInput, Prisma.UsuarioSACVUncheckedUpdateWithoutRedeApoioInput>
+}
+
+export type UsuarioSACVUpdateWithoutRedeApoioInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  nomePreferido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  telefone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modoUso?: Prisma.EnumModoUsoFieldUpdateOperationsInput | $Enums.ModoUso
+  nivelAcompanhamento?: Prisma.EnumNivelAcompanhamentoFieldUpdateOperationsInput | $Enums.NivelAcompanhamento
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
+  perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
+  medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
+  agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
+  listas?: Prisma.ListaUpdateManyWithoutUsuarioNestedInput
+  consentimentos?: Prisma.ConsentimentoUpdateManyWithoutUsuarioNestedInput
+  assinaturas?: Prisma.AssinaturaUpdateManyWithoutUsuarioNestedInput
+  registrosSaude?: Prisma.RegistroSaudeUpdateManyWithoutUsuarioNestedInput
+  convitesTutor?: Prisma.ConviteTutorUpdateManyWithoutUsuarioNestedInput
+}
+
+export type UsuarioSACVUncheckedUpdateWithoutRedeApoioInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  contaId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  nomePreferido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  telefone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modoUso?: Prisma.EnumModoUsoFieldUpdateOperationsInput | $Enums.ModoUso
+  nivelAcompanhamento?: Prisma.EnumNivelAcompanhamentoFieldUpdateOperationsInput | $Enums.NivelAcompanhamento
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   listas?: Prisma.ListaUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -1009,6 +1299,8 @@ export type UsuarioSACVCreateWithoutMedicamentosInput = {
   atualizadoEm?: Date | string
   conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
   perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
   listas?: Prisma.ListaCreateNestedManyWithoutUsuarioInput
@@ -1031,6 +1323,8 @@ export type UsuarioSACVUncheckedCreateWithoutMedicamentosInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
   listas?: Prisma.ListaUncheckedCreateNestedManyWithoutUsuarioInput
@@ -1069,6 +1363,8 @@ export type UsuarioSACVUpdateWithoutMedicamentosInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
   perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
   listas?: Prisma.ListaUpdateManyWithoutUsuarioNestedInput
@@ -1091,6 +1387,8 @@ export type UsuarioSACVUncheckedUpdateWithoutMedicamentosInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   listas?: Prisma.ListaUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -1113,6 +1411,8 @@ export type UsuarioSACVCreateWithoutAgendamentosInput = {
   atualizadoEm?: Date | string
   conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
   perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
   listas?: Prisma.ListaCreateNestedManyWithoutUsuarioInput
@@ -1135,6 +1435,8 @@ export type UsuarioSACVUncheckedCreateWithoutAgendamentosInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
   listas?: Prisma.ListaUncheckedCreateNestedManyWithoutUsuarioInput
@@ -1173,6 +1475,8 @@ export type UsuarioSACVUpdateWithoutAgendamentosInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
   perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
   listas?: Prisma.ListaUpdateManyWithoutUsuarioNestedInput
@@ -1195,6 +1499,8 @@ export type UsuarioSACVUncheckedUpdateWithoutAgendamentosInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   listas?: Prisma.ListaUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -1217,6 +1523,8 @@ export type UsuarioSACVCreateWithoutListasInput = {
   atualizadoEm?: Date | string
   conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
   perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
@@ -1239,6 +1547,8 @@ export type UsuarioSACVUncheckedCreateWithoutListasInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -1277,6 +1587,8 @@ export type UsuarioSACVUpdateWithoutListasInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
   perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
@@ -1299,6 +1611,8 @@ export type UsuarioSACVUncheckedUpdateWithoutListasInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -1321,6 +1635,8 @@ export type UsuarioSACVCreateWithoutRegistrosSaudeInput = {
   atualizadoEm?: Date | string
   conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
   perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
@@ -1343,6 +1659,8 @@ export type UsuarioSACVUncheckedCreateWithoutRegistrosSaudeInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -1381,6 +1699,8 @@ export type UsuarioSACVUpdateWithoutRegistrosSaudeInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
   perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
@@ -1403,6 +1723,8 @@ export type UsuarioSACVUncheckedUpdateWithoutRegistrosSaudeInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -1425,6 +1747,8 @@ export type UsuarioSACVCreateWithoutAssinaturasInput = {
   atualizadoEm?: Date | string
   conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
   perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
@@ -1447,6 +1771,8 @@ export type UsuarioSACVUncheckedCreateWithoutAssinaturasInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -1485,6 +1811,8 @@ export type UsuarioSACVUpdateWithoutAssinaturasInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
   perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
@@ -1507,6 +1835,8 @@ export type UsuarioSACVUncheckedUpdateWithoutAssinaturasInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -1529,6 +1859,8 @@ export type UsuarioSACVCreateWithoutConsentimentosInput = {
   atualizadoEm?: Date | string
   conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
   perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
@@ -1551,6 +1883,8 @@ export type UsuarioSACVUncheckedCreateWithoutConsentimentosInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -1589,6 +1923,8 @@ export type UsuarioSACVUpdateWithoutConsentimentosInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
   perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
@@ -1611,6 +1947,8 @@ export type UsuarioSACVUncheckedUpdateWithoutConsentimentosInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -1633,6 +1971,8 @@ export type UsuarioSACVCreateWithoutConvitesTutorInput = {
   atualizadoEm?: Date | string
   conta?: Prisma.ContaCreateNestedOneWithoutUsuarioInput
   perfil?: Prisma.PerfilUsuarioCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoCreateNestedManyWithoutUsuarioInput
@@ -1655,6 +1995,8 @@ export type UsuarioSACVUncheckedCreateWithoutConvitesTutorInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedCreateNestedOneWithoutUsuarioInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedCreateNestedManyWithoutUsuarioInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
   medicamentos?: Prisma.MedicamentoUncheckedCreateNestedManyWithoutUsuarioInput
   agendamentos?: Prisma.AgendamentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -1693,6 +2035,8 @@ export type UsuarioSACVUpdateWithoutConvitesTutorInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   conta?: Prisma.ContaUpdateOneWithoutUsuarioNestedInput
   perfil?: Prisma.PerfilUsuarioUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUpdateManyWithoutUsuarioNestedInput
@@ -1715,6 +2059,8 @@ export type UsuarioSACVUncheckedUpdateWithoutConvitesTutorInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   perfil?: Prisma.PerfilUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  perfilSaude?: Prisma.PerfilSaudeUncheckedUpdateOneWithoutUsuarioNestedInput
+  redeApoio?: Prisma.MembroRedeApoioUncheckedUpdateManyWithoutUsuarioNestedInput
   tutores?: Prisma.VinculoTutorUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
   medicamentos?: Prisma.MedicamentoUncheckedUpdateManyWithoutUsuarioNestedInput
   agendamentos?: Prisma.AgendamentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -1730,6 +2076,7 @@ export type UsuarioSACVUncheckedUpdateWithoutConvitesTutorInput = {
  */
 
 export type UsuarioSACVCountOutputType = {
+  redeApoio: number
   tutores: number
   medicamentos: number
   agendamentos: number
@@ -1741,6 +2088,7 @@ export type UsuarioSACVCountOutputType = {
 }
 
 export type UsuarioSACVCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  redeApoio?: boolean | UsuarioSACVCountOutputTypeCountRedeApoioArgs
   tutores?: boolean | UsuarioSACVCountOutputTypeCountTutoresArgs
   medicamentos?: boolean | UsuarioSACVCountOutputTypeCountMedicamentosArgs
   agendamentos?: boolean | UsuarioSACVCountOutputTypeCountAgendamentosArgs
@@ -1759,6 +2107,13 @@ export type UsuarioSACVCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.
    * Select specific fields to fetch from the UsuarioSACVCountOutputType
    */
   select?: Prisma.UsuarioSACVCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * UsuarioSACVCountOutputType without action
+ */
+export type UsuarioSACVCountOutputTypeCountRedeApoioArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MembroRedeApoioWhereInput
 }
 
 /**
@@ -1832,6 +2187,8 @@ export type UsuarioSACVSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   atualizadoEm?: boolean
   conta?: boolean | Prisma.UsuarioSACV$contaArgs<ExtArgs>
   perfil?: boolean | Prisma.UsuarioSACV$perfilArgs<ExtArgs>
+  perfilSaude?: boolean | Prisma.UsuarioSACV$perfilSaudeArgs<ExtArgs>
+  redeApoio?: boolean | Prisma.UsuarioSACV$redeApoioArgs<ExtArgs>
   tutores?: boolean | Prisma.UsuarioSACV$tutoresArgs<ExtArgs>
   medicamentos?: boolean | Prisma.UsuarioSACV$medicamentosArgs<ExtArgs>
   agendamentos?: boolean | Prisma.UsuarioSACV$agendamentosArgs<ExtArgs>
@@ -1891,6 +2248,8 @@ export type UsuarioSACVOmit<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type UsuarioSACVInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   conta?: boolean | Prisma.UsuarioSACV$contaArgs<ExtArgs>
   perfil?: boolean | Prisma.UsuarioSACV$perfilArgs<ExtArgs>
+  perfilSaude?: boolean | Prisma.UsuarioSACV$perfilSaudeArgs<ExtArgs>
+  redeApoio?: boolean | Prisma.UsuarioSACV$redeApoioArgs<ExtArgs>
   tutores?: boolean | Prisma.UsuarioSACV$tutoresArgs<ExtArgs>
   medicamentos?: boolean | Prisma.UsuarioSACV$medicamentosArgs<ExtArgs>
   agendamentos?: boolean | Prisma.UsuarioSACV$agendamentosArgs<ExtArgs>
@@ -1913,6 +2272,8 @@ export type $UsuarioSACVPayload<ExtArgs extends runtime.Types.Extensions.Interna
   objects: {
     conta: Prisma.$ContaPayload<ExtArgs> | null
     perfil: Prisma.$PerfilUsuarioPayload<ExtArgs> | null
+    perfilSaude: Prisma.$PerfilSaudePayload<ExtArgs> | null
+    redeApoio: Prisma.$MembroRedeApoioPayload<ExtArgs>[]
     tutores: Prisma.$VinculoTutorUsuarioPayload<ExtArgs>[]
     medicamentos: Prisma.$MedicamentoPayload<ExtArgs>[]
     agendamentos: Prisma.$AgendamentoPayload<ExtArgs>[]
@@ -2330,6 +2691,8 @@ export interface Prisma__UsuarioSACVClient<T, Null = never, ExtArgs extends runt
   readonly [Symbol.toStringTag]: "PrismaPromise"
   conta<T extends Prisma.UsuarioSACV$contaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioSACV$contaArgs<ExtArgs>>): Prisma.Prisma__ContaClient<runtime.Types.Result.GetResult<Prisma.$ContaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   perfil<T extends Prisma.UsuarioSACV$perfilArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioSACV$perfilArgs<ExtArgs>>): Prisma.Prisma__PerfilUsuarioClient<runtime.Types.Result.GetResult<Prisma.$PerfilUsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  perfilSaude<T extends Prisma.UsuarioSACV$perfilSaudeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioSACV$perfilSaudeArgs<ExtArgs>>): Prisma.Prisma__PerfilSaudeClient<runtime.Types.Result.GetResult<Prisma.$PerfilSaudePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  redeApoio<T extends Prisma.UsuarioSACV$redeApoioArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioSACV$redeApoioArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MembroRedeApoioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   tutores<T extends Prisma.UsuarioSACV$tutoresArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioSACV$tutoresArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VinculoTutorUsuarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   medicamentos<T extends Prisma.UsuarioSACV$medicamentosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioSACV$medicamentosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MedicamentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   agendamentos<T extends Prisma.UsuarioSACV$agendamentosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioSACV$agendamentosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgendamentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -2814,6 +3177,49 @@ export type UsuarioSACV$perfilArgs<ExtArgs extends runtime.Types.Extensions.Inte
    */
   include?: Prisma.PerfilUsuarioInclude<ExtArgs> | null
   where?: Prisma.PerfilUsuarioWhereInput
+}
+
+/**
+ * UsuarioSACV.perfilSaude
+ */
+export type UsuarioSACV$perfilSaudeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PerfilSaude
+   */
+  select?: Prisma.PerfilSaudeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PerfilSaude
+   */
+  omit?: Prisma.PerfilSaudeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PerfilSaudeInclude<ExtArgs> | null
+  where?: Prisma.PerfilSaudeWhereInput
+}
+
+/**
+ * UsuarioSACV.redeApoio
+ */
+export type UsuarioSACV$redeApoioArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MembroRedeApoio
+   */
+  select?: Prisma.MembroRedeApoioSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MembroRedeApoio
+   */
+  omit?: Prisma.MembroRedeApoioOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MembroRedeApoioInclude<ExtArgs> | null
+  where?: Prisma.MembroRedeApoioWhereInput
+  orderBy?: Prisma.MembroRedeApoioOrderByWithRelationInput | Prisma.MembroRedeApoioOrderByWithRelationInput[]
+  cursor?: Prisma.MembroRedeApoioWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MembroRedeApoioScalarFieldEnum | Prisma.MembroRedeApoioScalarFieldEnum[]
 }
 
 /**

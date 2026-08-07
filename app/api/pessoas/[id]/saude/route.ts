@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { TipoMembroRedeApoio } from "@/lib/generated/prisma/client";
 
 type RouteContext = {
   params: Promise<{
@@ -31,6 +30,7 @@ async function localizarPessoa(
     select: {
       id: true,
       nome: true,
+      nomePreferido: true,
     },
   });
 }
@@ -60,32 +60,27 @@ export async function GET(
       );
     }
 
-    const membros = await prisma.membroRedeApoio.findMany({
+    const perfilSaude = await prisma.perfilSaude.findUnique({
       where: {
         usuarioId: id,
-        ativo: true,
       },
-      orderBy: [
-        { tipo: "asc" },
-        { nome: "asc" },
-      ],
     });
 
     return NextResponse.json({
       pessoa,
-      membros,
+      perfilSaude,
     });
   } catch (error) {
-    console.error("Falha ao consultar rede de apoio", error);
+    console.error("Falha ao consultar perfil de saúde", error);
 
     return NextResponse.json(
-      { error: "Não foi possível consultar a rede de apoio." },
+      { error: "Não foi possível consultar o perfil de saúde." },
       { status: 500 },
     );
   }
 }
 
-export async function POST(
+export async function PUT(
   request: Request,
   context: RouteContext,
 ) {
@@ -112,59 +107,47 @@ export async function POST(
 
     const body = await request.json();
 
-    const nome = String(body.nome ?? "").trim();
-    const relacao = String(body.relacao ?? "").trim() || null;
-    const telefone = String(body.telefone ?? "").trim() || null;
-    const email = String(body.email ?? "").trim().toLowerCase() || null;
-    const observacoes =
-      String(body.observacoes ?? "").trim() || null;
-
-    if (nome.length < 2) {
-      return NextResponse.json(
-        { error: "Informe o nome do membro da rede de apoio." },
-        { status: 400 },
-      );
+    function texto(valor: unknown) {
+      return String(valor ?? "").trim() || null;
     }
 
-    const tiposValidos = Object.values(TipoMembroRedeApoio);
+    const dados = {
+      convenio: texto(body.convenio),
+      planoSaude: texto(body.planoSaude),
+      numeroCarteirinha: texto(body.numeroCarteirinha),
+      alergias: texto(body.alergias),
+      condicoesClinicas: texto(body.condicoesClinicas),
+      protesesImplantes: texto(body.protesesImplantes),
+      limitacoesFisicas: texto(body.limitacoesFisicas),
+      observacoesCognitivas: texto(body.observacoesCognitivas),
+      orientacoesMedicas: texto(body.orientacoesMedicas),
+      medicoReferencia: texto(body.medicoReferencia),
+      telefoneMedico: texto(body.telefoneMedico),
+      contatoEmergencia: texto(body.contatoEmergencia),
+      telefoneEmergencia: texto(body.telefoneEmergencia),
+      observacoesGerais: texto(body.observacoesGerais),
+    };
 
-    const tipo = tiposValidos.includes(body.tipo)
-      ? body.tipo
-      : TipoMembroRedeApoio.FAMILIAR;
-
-    const membro = await prisma.membroRedeApoio.create({
-      data: {
+    const perfilSaude = await prisma.perfilSaude.upsert({
+      where: {
         usuarioId: id,
-        nome,
-        relacao,
-        tipo,
-        telefone,
-        email,
-        observacoes,
-        podeEditar: Boolean(body.podeEditar),
-        recebeResumo:
-          body.recebeResumo === undefined
-            ? true
-            : Boolean(body.recebeResumo),
-        recebeAlertas:
-          body.recebeAlertas === undefined
-            ? true
-            : Boolean(body.recebeAlertas),
       },
+      create: {
+        usuarioId: id,
+        ...dados,
+      },
+      update: dados,
     });
 
-    return NextResponse.json(
-      {
-        ok: true,
-        membro,
-      },
-      { status: 201 },
-    );
+    return NextResponse.json({
+      ok: true,
+      perfilSaude,
+    });
   } catch (error) {
-    console.error("Falha ao cadastrar membro da rede", error);
+    console.error("Falha ao salvar perfil de saúde", error);
 
     return NextResponse.json(
-      { error: "Não foi possível cadastrar o membro." },
+      { error: "Não foi possível salvar o perfil de saúde." },
       { status: 500 },
     );
   }

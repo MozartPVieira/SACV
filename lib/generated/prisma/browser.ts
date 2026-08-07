@@ -43,6 +43,11 @@ export type UsuarioSACV = Prisma.UsuarioSACVModel
  */
 export type PerfilUsuario = Prisma.PerfilUsuarioModel
 /**
+ * Model PerfilSaude
+ * 
+ */
+export type PerfilSaude = Prisma.PerfilSaudeModel
+/**
  * Model Tutor
  * 
  */
@@ -52,6 +57,11 @@ export type Tutor = Prisma.TutorModel
  * 
  */
 export type VinculoTutorUsuario = Prisma.VinculoTutorUsuarioModel
+/**
+ * Model MembroRedeApoio
+ * 
+ */
+export type MembroRedeApoio = Prisma.MembroRedeApoioModel
 /**
  * Model Medicamento
  * 
@@ -127,3 +137,13 @@ export type LogAuditoria = Prisma.LogAuditoriaModel
  * 
  */
 export type ConviteTutor = Prisma.ConviteTutorModel
+/**
+ * Model ConfiguracaoEmail
+ * 
+ */
+export type ConfiguracaoEmail = Prisma.ConfiguracaoEmailModel
+/**
+ * Model EnvioEmail
+ * 
+ */
+export type EnvioEmail = Prisma.EnvioEmailModel

@@ -7,7 +7,7 @@ const itens = [
   { href: "/painel", nome: "Dashboard", icone: "⌂" },
   { href: "/painel/pessoas", nome: "Pessoas", icone: "👥" },
   { href: "/painel/rotina", nome: "Rotina", icone: "📅" },
-  { href: "/painel/saude", nome: "Saúde", icone: "♥" },
+  { href: "/painel/saude", nome: "Perfil clínico", icone: "♥" },
   { href: "/painel/cida", nome: "CIDA", icone: "◉" },
   { href: "/painel/alertas", nome: "Alertas", icone: "⚠" },
   { href: "/painel/mensagens", nome: "Mensagens", icone: "✉" },
@@ -52,3 +52,4 @@ export default function PainelSidebar() {
     </aside>
   );
 }
+

@@ -389,8 +389,10 @@ export const ModelName = {
   Contratante: 'Contratante',
   UsuarioSACV: 'UsuarioSACV',
   PerfilUsuario: 'PerfilUsuario',
+  PerfilSaude: 'PerfilSaude',
   Tutor: 'Tutor',
   VinculoTutorUsuario: 'VinculoTutorUsuario',
+  MembroRedeApoio: 'MembroRedeApoio',
   Medicamento: 'Medicamento',
   HorarioMedicamento: 'HorarioMedicamento',
   ConfirmacaoMedicamento: 'ConfirmacaoMedicamento',
@@ -405,7 +407,9 @@ export const ModelName = {
   ContratoDispositivo: 'ContratoDispositivo',
   Consentimento: 'Consentimento',
   LogAuditoria: 'LogAuditoria',
-  ConviteTutor: 'ConviteTutor'
+  ConviteTutor: 'ConviteTutor',
+  ConfiguracaoEmail: 'ConfiguracaoEmail',
+  EnvioEmail: 'EnvioEmail'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -421,7 +425,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "conta" | "contaPapel" | "contratante" | "usuarioSACV" | "perfilUsuario" | "tutor" | "vinculoTutorUsuario" | "medicamento" | "horarioMedicamento" | "confirmacaoMedicamento" | "agendamento" | "lista" | "itemLista" | "registroSaude" | "plano" | "assinatura" | "pagamento" | "dispositivo" | "contratoDispositivo" | "consentimento" | "logAuditoria" | "conviteTutor"
+    modelProps: "conta" | "contaPapel" | "contratante" | "usuarioSACV" | "perfilUsuario" | "perfilSaude" | "tutor" | "vinculoTutorUsuario" | "membroRedeApoio" | "medicamento" | "horarioMedicamento" | "confirmacaoMedicamento" | "agendamento" | "lista" | "itemLista" | "registroSaude" | "plano" | "assinatura" | "pagamento" | "dispositivo" | "contratoDispositivo" | "consentimento" | "logAuditoria" | "conviteTutor" | "configuracaoEmail" | "envioEmail"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -795,6 +799,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    PerfilSaude: {
+      payload: Prisma.$PerfilSaudePayload<ExtArgs>
+      fields: Prisma.PerfilSaudeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PerfilSaudeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PerfilSaudePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PerfilSaudeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PerfilSaudePayload>
+        }
+        findFirst: {
+          args: Prisma.PerfilSaudeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PerfilSaudePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PerfilSaudeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PerfilSaudePayload>
+        }
+        findMany: {
+          args: Prisma.PerfilSaudeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PerfilSaudePayload>[]
+        }
+        create: {
+          args: Prisma.PerfilSaudeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PerfilSaudePayload>
+        }
+        createMany: {
+          args: Prisma.PerfilSaudeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PerfilSaudeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PerfilSaudePayload>[]
+        }
+        delete: {
+          args: Prisma.PerfilSaudeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PerfilSaudePayload>
+        }
+        update: {
+          args: Prisma.PerfilSaudeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PerfilSaudePayload>
+        }
+        deleteMany: {
+          args: Prisma.PerfilSaudeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PerfilSaudeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PerfilSaudeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PerfilSaudePayload>[]
+        }
+        upsert: {
+          args: Prisma.PerfilSaudeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PerfilSaudePayload>
+        }
+        aggregate: {
+          args: Prisma.PerfilSaudeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePerfilSaude>
+        }
+        groupBy: {
+          args: Prisma.PerfilSaudeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PerfilSaudeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PerfilSaudeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PerfilSaudeCountAggregateOutputType> | number
+        }
+      }
+    }
     Tutor: {
       payload: Prisma.$TutorPayload<ExtArgs>
       fields: Prisma.TutorFieldRefs
@@ -940,6 +1018,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.VinculoTutorUsuarioCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.VinculoTutorUsuarioCountAggregateOutputType> | number
+        }
+      }
+    }
+    MembroRedeApoio: {
+      payload: Prisma.$MembroRedeApoioPayload<ExtArgs>
+      fields: Prisma.MembroRedeApoioFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.MembroRedeApoioFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MembroRedeApoioPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.MembroRedeApoioFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MembroRedeApoioPayload>
+        }
+        findFirst: {
+          args: Prisma.MembroRedeApoioFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MembroRedeApoioPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.MembroRedeApoioFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MembroRedeApoioPayload>
+        }
+        findMany: {
+          args: Prisma.MembroRedeApoioFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MembroRedeApoioPayload>[]
+        }
+        create: {
+          args: Prisma.MembroRedeApoioCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MembroRedeApoioPayload>
+        }
+        createMany: {
+          args: Prisma.MembroRedeApoioCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.MembroRedeApoioCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MembroRedeApoioPayload>[]
+        }
+        delete: {
+          args: Prisma.MembroRedeApoioDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MembroRedeApoioPayload>
+        }
+        update: {
+          args: Prisma.MembroRedeApoioUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MembroRedeApoioPayload>
+        }
+        deleteMany: {
+          args: Prisma.MembroRedeApoioDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.MembroRedeApoioUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.MembroRedeApoioUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MembroRedeApoioPayload>[]
+        }
+        upsert: {
+          args: Prisma.MembroRedeApoioUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MembroRedeApoioPayload>
+        }
+        aggregate: {
+          args: Prisma.MembroRedeApoioAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateMembroRedeApoio>
+        }
+        groupBy: {
+          args: Prisma.MembroRedeApoioGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MembroRedeApoioGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.MembroRedeApoioCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MembroRedeApoioCountAggregateOutputType> | number
         }
       }
     }
@@ -2053,6 +2205,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ConfiguracaoEmail: {
+      payload: Prisma.$ConfiguracaoEmailPayload<ExtArgs>
+      fields: Prisma.ConfiguracaoEmailFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ConfiguracaoEmailFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoEmailPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ConfiguracaoEmailFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoEmailPayload>
+        }
+        findFirst: {
+          args: Prisma.ConfiguracaoEmailFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoEmailPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ConfiguracaoEmailFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoEmailPayload>
+        }
+        findMany: {
+          args: Prisma.ConfiguracaoEmailFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoEmailPayload>[]
+        }
+        create: {
+          args: Prisma.ConfiguracaoEmailCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoEmailPayload>
+        }
+        createMany: {
+          args: Prisma.ConfiguracaoEmailCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ConfiguracaoEmailCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoEmailPayload>[]
+        }
+        delete: {
+          args: Prisma.ConfiguracaoEmailDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoEmailPayload>
+        }
+        update: {
+          args: Prisma.ConfiguracaoEmailUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoEmailPayload>
+        }
+        deleteMany: {
+          args: Prisma.ConfiguracaoEmailDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ConfiguracaoEmailUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ConfiguracaoEmailUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoEmailPayload>[]
+        }
+        upsert: {
+          args: Prisma.ConfiguracaoEmailUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoEmailPayload>
+        }
+        aggregate: {
+          args: Prisma.ConfiguracaoEmailAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateConfiguracaoEmail>
+        }
+        groupBy: {
+          args: Prisma.ConfiguracaoEmailGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ConfiguracaoEmailGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ConfiguracaoEmailCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ConfiguracaoEmailCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnvioEmail: {
+      payload: Prisma.$EnvioEmailPayload<ExtArgs>
+      fields: Prisma.EnvioEmailFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnvioEmailFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnvioEmailPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnvioEmailFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnvioEmailPayload>
+        }
+        findFirst: {
+          args: Prisma.EnvioEmailFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnvioEmailPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnvioEmailFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnvioEmailPayload>
+        }
+        findMany: {
+          args: Prisma.EnvioEmailFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnvioEmailPayload>[]
+        }
+        create: {
+          args: Prisma.EnvioEmailCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnvioEmailPayload>
+        }
+        createMany: {
+          args: Prisma.EnvioEmailCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnvioEmailCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnvioEmailPayload>[]
+        }
+        delete: {
+          args: Prisma.EnvioEmailDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnvioEmailPayload>
+        }
+        update: {
+          args: Prisma.EnvioEmailUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnvioEmailPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnvioEmailDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnvioEmailUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnvioEmailUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnvioEmailPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnvioEmailUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnvioEmailPayload>
+        }
+        aggregate: {
+          args: Prisma.EnvioEmailAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnvioEmail>
+        }
+        groupBy: {
+          args: Prisma.EnvioEmailGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnvioEmailGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnvioEmailCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnvioEmailCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2156,6 +2456,30 @@ export const PerfilUsuarioScalarFieldEnum = {
 export type PerfilUsuarioScalarFieldEnum = (typeof PerfilUsuarioScalarFieldEnum)[keyof typeof PerfilUsuarioScalarFieldEnum]
 
 
+export const PerfilSaudeScalarFieldEnum = {
+  id: 'id',
+  usuarioId: 'usuarioId',
+  convenio: 'convenio',
+  planoSaude: 'planoSaude',
+  numeroCarteirinha: 'numeroCarteirinha',
+  alergias: 'alergias',
+  condicoesClinicas: 'condicoesClinicas',
+  protesesImplantes: 'protesesImplantes',
+  limitacoesFisicas: 'limitacoesFisicas',
+  observacoesCognitivas: 'observacoesCognitivas',
+  orientacoesMedicas: 'orientacoesMedicas',
+  medicoReferencia: 'medicoReferencia',
+  telefoneMedico: 'telefoneMedico',
+  contatoEmergencia: 'contatoEmergencia',
+  telefoneEmergencia: 'telefoneEmergencia',
+  observacoesGerais: 'observacoesGerais',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type PerfilSaudeScalarFieldEnum = (typeof PerfilSaudeScalarFieldEnum)[keyof typeof PerfilSaudeScalarFieldEnum]
+
+
 export const TutorScalarFieldEnum = {
   id: 'id',
   contaId: 'contaId'
@@ -2176,6 +2500,26 @@ export const VinculoTutorUsuarioScalarFieldEnum = {
 } as const
 
 export type VinculoTutorUsuarioScalarFieldEnum = (typeof VinculoTutorUsuarioScalarFieldEnum)[keyof typeof VinculoTutorUsuarioScalarFieldEnum]
+
+
+export const MembroRedeApoioScalarFieldEnum = {
+  id: 'id',
+  usuarioId: 'usuarioId',
+  nome: 'nome',
+  relacao: 'relacao',
+  tipo: 'tipo',
+  telefone: 'telefone',
+  email: 'email',
+  observacoes: 'observacoes',
+  podeEditar: 'podeEditar',
+  recebeResumo: 'recebeResumo',
+  recebeAlertas: 'recebeAlertas',
+  ativo: 'ativo',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type MembroRedeApoioScalarFieldEnum = (typeof MembroRedeApoioScalarFieldEnum)[keyof typeof MembroRedeApoioScalarFieldEnum]
 
 
 export const MedicamentoScalarFieldEnum = {
@@ -2371,6 +2715,45 @@ export const ConviteTutorScalarFieldEnum = {
 export type ConviteTutorScalarFieldEnum = (typeof ConviteTutorScalarFieldEnum)[keyof typeof ConviteTutorScalarFieldEnum]
 
 
+export const ConfiguracaoEmailScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  nomeRemetente: 'nomeRemetente',
+  emailRemetente: 'emailRemetente',
+  emailResposta: 'emailResposta',
+  provedor: 'provedor',
+  hostSmtp: 'hostSmtp',
+  portaSmtp: 'portaSmtp',
+  usarTls: 'usarTls',
+  usuarioSmtp: 'usuarioSmtp',
+  segredoReferencia: 'segredoReferencia',
+  principal: 'principal',
+  ativo: 'ativo',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type ConfiguracaoEmailScalarFieldEnum = (typeof ConfiguracaoEmailScalarFieldEnum)[keyof typeof ConfiguracaoEmailScalarFieldEnum]
+
+
+export const EnvioEmailScalarFieldEnum = {
+  id: 'id',
+  configuracaoId: 'configuracaoId',
+  destinatario: 'destinatario',
+  assunto: 'assunto',
+  tipo: 'tipo',
+  referenciaId: 'referenciaId',
+  status: 'status',
+  tentativas: 'tentativas',
+  provedorMensagemId: 'provedorMensagemId',
+  mensagemErro: 'mensagemErro',
+  criadoEm: 'criadoEm',
+  enviadoEm: 'enviadoEm'
+} as const
+
+export type EnvioEmailScalarFieldEnum = (typeof EnvioEmailScalarFieldEnum)[keyof typeof EnvioEmailScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -2479,6 +2862,20 @@ export type ListEnumNivelAcompanhamentoFieldRefInput<$PrismaModel> = FieldRefInp
 
 
 /**
+ * Reference to a field of type 'TipoMembroRedeApoio'
+ */
+export type EnumTipoMembroRedeApoioFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TipoMembroRedeApoio'>
+    
+
+
+/**
+ * Reference to a field of type 'TipoMembroRedeApoio[]'
+ */
+export type ListEnumTipoMembroRedeApoioFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TipoMembroRedeApoio[]'>
+    
+
+
+/**
  * Reference to a field of type 'StatusAgendamento'
  */
 export type EnumStatusAgendamentoFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusAgendamento'>
@@ -2549,6 +2946,20 @@ export type ListEnumStatusConviteTutorFieldRefInput<$PrismaModel> = FieldRefInpu
 
 
 /**
+ * Reference to a field of type 'ProvedorEmail'
+ */
+export type EnumProvedorEmailFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProvedorEmail'>
+    
+
+
+/**
+ * Reference to a field of type 'ProvedorEmail[]'
+ */
+export type ListEnumProvedorEmailFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProvedorEmail[]'>
+    
+
+
+/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -2559,6 +2970,34 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'StatusEnvioEmail'
+ */
+export type EnumStatusEnvioEmailFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusEnvioEmail'>
+    
+
+
+/**
+ * Reference to a field of type 'StatusEnvioEmail[]'
+ */
+export type ListEnumStatusEnvioEmailFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusEnvioEmail[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 /**
@@ -2676,8 +3115,10 @@ export type GlobalOmitConfig = {
   contratante?: Prisma.ContratanteOmit
   usuarioSACV?: Prisma.UsuarioSACVOmit
   perfilUsuario?: Prisma.PerfilUsuarioOmit
+  perfilSaude?: Prisma.PerfilSaudeOmit
   tutor?: Prisma.TutorOmit
   vinculoTutorUsuario?: Prisma.VinculoTutorUsuarioOmit
+  membroRedeApoio?: Prisma.MembroRedeApoioOmit
   medicamento?: Prisma.MedicamentoOmit
   horarioMedicamento?: Prisma.HorarioMedicamentoOmit
   confirmacaoMedicamento?: Prisma.ConfirmacaoMedicamentoOmit
@@ -2693,6 +3134,8 @@ export type GlobalOmitConfig = {
   consentimento?: Prisma.ConsentimentoOmit
   logAuditoria?: Prisma.LogAuditoriaOmit
   conviteTutor?: Prisma.ConviteTutorOmit
+  configuracaoEmail?: Prisma.ConfiguracaoEmailOmit
+  envioEmail?: Prisma.EnvioEmailOmit
 }
 
 /* Types for Logging */

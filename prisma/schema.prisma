@@ -97,6 +97,8 @@ model UsuarioSACV {
   ativo               Boolean               @default(true)
   conta               Conta?                @relation(fields: [contaId], references: [id])
   perfil              PerfilUsuario?
+  perfilSaude         PerfilSaude?
+  redeApoio           MembroRedeApoio[]
   tutores             VinculoTutorUsuario[]
   medicamentos        Medicamento[]
   agendamentos        Agendamento[]
@@ -122,6 +124,28 @@ model PerfilUsuario {
   usuario             UsuarioSACV @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
 }
 
+model PerfilSaude {
+  id                    String      @id @default(cuid())
+  usuarioId             String      @unique
+  convenio              String?
+  planoSaude            String?
+  numeroCarteirinha     String?
+  alergias              String?
+  condicoesClinicas     String?
+  protesesImplantes     String?
+  limitacoesFisicas     String?
+  observacoesCognitivas String?
+  orientacoesMedicas    String?
+  medicoReferencia      String?
+  telefoneMedico        String?
+  contatoEmergencia     String?
+  telefoneEmergencia    String?
+  observacoesGerais     String?
+  criadoEm              DateTime    @default(now())
+  atualizadoEm          DateTime    @updatedAt
+  usuario               UsuarioSACV @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+}
+
 model Tutor {
   id       String                @id @default(cuid())
   contaId  String                @unique
@@ -142,6 +166,35 @@ model VinculoTutorUsuario {
   usuario       UsuarioSACV @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
 
   @@unique([tutorId, usuarioId])
+}
+
+enum TipoMembroRedeApoio {
+  FAMILIAR
+  CUIDADOR
+  PROFISSIONAL_SAUDE
+  VIZINHO
+  AMIGO
+  OUTRO
+}
+
+model MembroRedeApoio {
+  id            String              @id @default(cuid())
+  usuarioId     String
+  nome          String
+  relacao       String?
+  tipo          TipoMembroRedeApoio @default(FAMILIAR)
+  telefone      String?
+  email         String?
+  observacoes   String?
+  podeEditar    Boolean             @default(false)
+  recebeResumo  Boolean             @default(true)
+  recebeAlertas Boolean             @default(true)
+  ativo         Boolean             @default(true)
+  criadoEm      DateTime            @default(now())
+  atualizadoEm  DateTime            @updatedAt
+  usuario       UsuarioSACV         @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  @@index([usuarioId, ativo])
 }
 
 model Medicamento {
@@ -325,4 +378,61 @@ model ConviteTutor {
 
   @@index([usuarioId, status])
   @@index([convidadoEmail, status])
+}
+
+enum ProvedorEmail {
+  SMTP
+  RESEND
+  SENDGRID
+  AMAZON_SES
+  OUTRO
+}
+
+enum StatusEnvioEmail {
+  PENDENTE
+  ENVIANDO
+  ENVIADO
+  FALHOU
+  CANCELADO
+}
+
+model ConfiguracaoEmail {
+  id                String        @id @default(cuid())
+  nome              String
+  nomeRemetente     String
+  emailRemetente    String
+  emailResposta     String?
+  provedor          ProvedorEmail @default(SMTP)
+  hostSmtp          String?
+  portaSmtp         Int?
+  usarTls           Boolean       @default(true)
+  usuarioSmtp       String?
+  segredoReferencia String
+  principal         Boolean       @default(false)
+  ativo             Boolean       @default(true)
+  criadoEm          DateTime      @default(now())
+  atualizadoEm      DateTime      @updatedAt
+  envios            EnvioEmail[]
+
+  @@index([ativo, principal])
+}
+
+model EnvioEmail {
+  id                 String            @id @default(cuid())
+  configuracaoId     String
+  destinatario       String
+  assunto            String
+  tipo               String
+  referenciaId       String?
+  status             StatusEnvioEmail  @default(PENDENTE)
+  tentativas         Int               @default(0)
+  provedorMensagemId String?
+  mensagemErro       String?
+  criadoEm           DateTime          @default(now())
+  enviadoEm          DateTime?
+  configuracao       ConfiguracaoEmail @relation(fields: [configuracaoId], references: [id])
+
+  @@index([destinatario, criadoEm])
+  @@index([status, criadoEm])
+  @@index([referenciaId])
 }

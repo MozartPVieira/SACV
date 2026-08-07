@@ -56,8 +56,10 @@ export const ModelName = {
   Contratante: 'Contratante',
   UsuarioSACV: 'UsuarioSACV',
   PerfilUsuario: 'PerfilUsuario',
+  PerfilSaude: 'PerfilSaude',
   Tutor: 'Tutor',
   VinculoTutorUsuario: 'VinculoTutorUsuario',
+  MembroRedeApoio: 'MembroRedeApoio',
   Medicamento: 'Medicamento',
   HorarioMedicamento: 'HorarioMedicamento',
   ConfirmacaoMedicamento: 'ConfirmacaoMedicamento',
@@ -72,7 +74,9 @@ export const ModelName = {
   ContratoDispositivo: 'ContratoDispositivo',
   Consentimento: 'Consentimento',
   LogAuditoria: 'LogAuditoria',
-  ConviteTutor: 'ConviteTutor'
+  ConviteTutor: 'ConviteTutor',
+  ConfiguracaoEmail: 'ConfiguracaoEmail',
+  EnvioEmail: 'EnvioEmail'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -155,6 +159,30 @@ export const PerfilUsuarioScalarFieldEnum = {
 export type PerfilUsuarioScalarFieldEnum = (typeof PerfilUsuarioScalarFieldEnum)[keyof typeof PerfilUsuarioScalarFieldEnum]
 
 
+export const PerfilSaudeScalarFieldEnum = {
+  id: 'id',
+  usuarioId: 'usuarioId',
+  convenio: 'convenio',
+  planoSaude: 'planoSaude',
+  numeroCarteirinha: 'numeroCarteirinha',
+  alergias: 'alergias',
+  condicoesClinicas: 'condicoesClinicas',
+  protesesImplantes: 'protesesImplantes',
+  limitacoesFisicas: 'limitacoesFisicas',
+  observacoesCognitivas: 'observacoesCognitivas',
+  orientacoesMedicas: 'orientacoesMedicas',
+  medicoReferencia: 'medicoReferencia',
+  telefoneMedico: 'telefoneMedico',
+  contatoEmergencia: 'contatoEmergencia',
+  telefoneEmergencia: 'telefoneEmergencia',
+  observacoesGerais: 'observacoesGerais',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type PerfilSaudeScalarFieldEnum = (typeof PerfilSaudeScalarFieldEnum)[keyof typeof PerfilSaudeScalarFieldEnum]
+
+
 export const TutorScalarFieldEnum = {
   id: 'id',
   contaId: 'contaId'
@@ -175,6 +203,26 @@ export const VinculoTutorUsuarioScalarFieldEnum = {
 } as const
 
 export type VinculoTutorUsuarioScalarFieldEnum = (typeof VinculoTutorUsuarioScalarFieldEnum)[keyof typeof VinculoTutorUsuarioScalarFieldEnum]
+
+
+export const MembroRedeApoioScalarFieldEnum = {
+  id: 'id',
+  usuarioId: 'usuarioId',
+  nome: 'nome',
+  relacao: 'relacao',
+  tipo: 'tipo',
+  telefone: 'telefone',
+  email: 'email',
+  observacoes: 'observacoes',
+  podeEditar: 'podeEditar',
+  recebeResumo: 'recebeResumo',
+  recebeAlertas: 'recebeAlertas',
+  ativo: 'ativo',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type MembroRedeApoioScalarFieldEnum = (typeof MembroRedeApoioScalarFieldEnum)[keyof typeof MembroRedeApoioScalarFieldEnum]
 
 
 export const MedicamentoScalarFieldEnum = {
@@ -368,6 +416,45 @@ export const ConviteTutorScalarFieldEnum = {
 } as const
 
 export type ConviteTutorScalarFieldEnum = (typeof ConviteTutorScalarFieldEnum)[keyof typeof ConviteTutorScalarFieldEnum]
+
+
+export const ConfiguracaoEmailScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  nomeRemetente: 'nomeRemetente',
+  emailRemetente: 'emailRemetente',
+  emailResposta: 'emailResposta',
+  provedor: 'provedor',
+  hostSmtp: 'hostSmtp',
+  portaSmtp: 'portaSmtp',
+  usarTls: 'usarTls',
+  usuarioSmtp: 'usuarioSmtp',
+  segredoReferencia: 'segredoReferencia',
+  principal: 'principal',
+  ativo: 'ativo',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type ConfiguracaoEmailScalarFieldEnum = (typeof ConfiguracaoEmailScalarFieldEnum)[keyof typeof ConfiguracaoEmailScalarFieldEnum]
+
+
+export const EnvioEmailScalarFieldEnum = {
+  id: 'id',
+  configuracaoId: 'configuracaoId',
+  destinatario: 'destinatario',
+  assunto: 'assunto',
+  tipo: 'tipo',
+  referenciaId: 'referenciaId',
+  status: 'status',
+  tentativas: 'tentativas',
+  provedorMensagemId: 'provedorMensagemId',
+  mensagemErro: 'mensagemErro',
+  criadoEm: 'criadoEm',
+  enviadoEm: 'enviadoEm'
+} as const
+
+export type EnvioEmailScalarFieldEnum = (typeof EnvioEmailScalarFieldEnum)[keyof typeof EnvioEmailScalarFieldEnum]
 
 
 export const SortOrder = {

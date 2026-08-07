@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PessoaPerfilClient from "./PessoaPerfilClient";
 import TutoresClient from "./TutoresClient";
 
@@ -14,9 +15,23 @@ export default async function PessoaPerfilPage({
 
   return (
     <section className="module-page">
-      <p className="eyebrow">SACV 0.4</p>
-      <h1>Perfil da pessoa</h1>
-      <p>Dados pessoais, rotina e preferências utilizadas pela CIDA.</p>
+      <div className="profile-page-heading">
+        <div>
+          <p className="eyebrow">SACV 0.4</p>
+          <h1>Perfil da pessoa</h1>
+          <p>
+            Dados pessoais, rotina, preferências e rede de apoio utilizadas
+            pela CIDA.
+          </p>
+        </div>
+
+        <Link
+          href={`/painel/saude?pessoaId=${id}`}
+          className="primary-button profile-health-link"
+        >
+          Abrir Perfil clínico
+        </Link>
+      </div>
 
       <PessoaPerfilClient pessoaId={id} />
       <TutoresClient pessoaId={id} />

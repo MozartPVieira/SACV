@@ -2,6 +2,8 @@ import { redirect } from "next/navigation";
 import { getSession, hasRole } from "@/lib/auth";
 import { PapelConta } from "@/lib/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
+import EmailConfigClient from "./EmailConfigClient";
+import EmailTestClient from "./EmailTestClient";
 
 export default async function AdminPage() {
   const session = await getSession();
@@ -21,6 +23,10 @@ export default async function AdminPage() {
         <article className="metric"><span>Usuários SACV</span><strong>{usuarios}</strong></article>
         <article className="metric"><span>Assinaturas</span><strong>{assinaturas}</strong></article>
       </section>
+      <EmailConfigClient />
+      <EmailTestClient />
     </main>
   );
 }
+
+

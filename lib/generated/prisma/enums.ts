@@ -71,6 +71,18 @@ export const StatusAgendamento = {
 export type StatusAgendamento = (typeof StatusAgendamento)[keyof typeof StatusAgendamento]
 
 
+export const TipoMembroRedeApoio = {
+  FAMILIAR: 'FAMILIAR',
+  CUIDADOR: 'CUIDADOR',
+  PROFISSIONAL_SAUDE: 'PROFISSIONAL_SAUDE',
+  VIZINHO: 'VIZINHO',
+  AMIGO: 'AMIGO',
+  OUTRO: 'OUTRO'
+} as const
+
+export type TipoMembroRedeApoio = (typeof TipoMembroRedeApoio)[keyof typeof TipoMembroRedeApoio]
+
+
 export const StatusConviteTutor = {
   PENDENTE: 'PENDENTE',
   ACEITO: 'ACEITO',
@@ -80,3 +92,25 @@ export const StatusConviteTutor = {
 } as const
 
 export type StatusConviteTutor = (typeof StatusConviteTutor)[keyof typeof StatusConviteTutor]
+
+
+export const ProvedorEmail = {
+  SMTP: 'SMTP',
+  RESEND: 'RESEND',
+  SENDGRID: 'SENDGRID',
+  AMAZON_SES: 'AMAZON_SES',
+  OUTRO: 'OUTRO'
+} as const
+
+export type ProvedorEmail = (typeof ProvedorEmail)[keyof typeof ProvedorEmail]
+
+
+export const StatusEnvioEmail = {
+  PENDENTE: 'PENDENTE',
+  ENVIANDO: 'ENVIANDO',
+  ENVIADO: 'ENVIADO',
+  FALHOU: 'FALHOU',
+  CANCELADO: 'CANCELADO'
+} as const
+
+export type StatusEnvioEmail = (typeof StatusEnvioEmail)[keyof typeof StatusEnvioEmail]
