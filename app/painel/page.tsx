@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+import "./dashboard-v05.css";
+
 export default async function PainelPage() {
   const session = await getSession();
 
@@ -37,12 +39,9 @@ export default async function PainelPage() {
   });
 
   const pessoaIds = pessoas.map((pessoa) => pessoa.id);
-
   const agora = new Date();
-
   const inicioHoje = new Date(agora);
   inicioHoje.setHours(0, 0, 0, 0);
-
   const fimHoje = new Date(agora);
   fimHoje.setHours(23, 59, 59, 999);
 
@@ -51,30 +50,22 @@ export default async function PainelPage() {
       ? await Promise.all([
           prisma.medicamento.count({
             where: {
-              usuarioId: {
-                in: pessoaIds,
-              },
+              usuarioId: { in: pessoaIds },
               ativo: true,
             },
           }),
-
           prisma.agendamento.count({
             where: {
-              usuarioId: {
-                in: pessoaIds,
-              },
+              usuarioId: { in: pessoaIds },
               inicio: {
                 gte: inicioHoje,
                 lte: fimHoje,
               },
             },
           }),
-
           prisma.agendamento.findMany({
             where: {
-              usuarioId: {
-                in: pessoaIds,
-              },
+              usuarioId: { in: pessoaIds },
               inicio: {
                 gte: inicioHoje,
                 lte: fimHoje,
@@ -104,14 +95,20 @@ export default async function PainelPage() {
   }
 
   const primeiroNome = session.nome.split(" ")[0];
+  const dataHoje = new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(agora);
 
   return (
     <div className="sacv-dashboard">
       <section className="dashboard-welcome">
         <div>
           <p className="eyebrow">Painel de acompanhamento</p>
-          <h1>Bom dia, {primeiroNome}!</h1>
-          <p>Aqui está o resumo atual do SACV.</p>
+          <h1>Bom dia, {primeiroNome}! 👋</h1>
+          <p className="dashboard-welcome-copy">Aqui está o resumo de hoje.</p>
+          <span className="dashboard-date">{dataHoje}</span>
         </div>
 
         <Link href="/painel/rotina" className="dashboard-new-action">
@@ -125,71 +122,67 @@ export default async function PainelPage() {
           <span className="dashboard-metric-icon">👥</span>
           <div>
             <strong>{pessoas.length}</strong>
-            <span>Pessoas acompanhadas</span>
-            <Link href="/painel/pessoas">Ver pessoas</Link>
+            <span className="dashboard-metric-label">Pessoas acompanhadas</span>
+            <span className="dashboard-metric-help">Ativas no acompanhamento</span>
+            <Link href="/painel/pessoas">Ver pessoas →</Link>
           </div>
         </article>
 
-        <article className="dashboard-metric-card">
-          <span className="dashboard-metric-icon">📅</span>
-          <div>
-            <strong>{cuidadosHoje}</strong>
-            <span>Cuidados hoje</span>
-            <Link href="/painel/rotina">Ver rotina</Link>
-          </div>
-        </article>
-
-        <article className="dashboard-metric-card">
+        <article className="dashboard-metric-card metric-green">
           <span className="dashboard-metric-icon">💊</span>
           <div>
             <strong>{totalMedicamentos}</strong>
-            <span>Medicamentos ativos</span>
-            <Link href="/painel/saude">Ver Perfil clínico</Link>
+            <span className="dashboard-metric-label">Medicamentos ativos</span>
+            <span className="dashboard-metric-help">Plano clínico em acompanhamento</span>
+            <Link href="/painel/saude">Ver Perfil clínico →</Link>
           </div>
         </article>
 
-        <article className="dashboard-metric-card">
+        <article className="dashboard-metric-card metric-blue">
+          <span className="dashboard-metric-icon">📅</span>
+          <div>
+            <strong>{cuidadosHoje}</strong>
+            <span className="dashboard-metric-label">Cuidados hoje</span>
+            <span className="dashboard-metric-help">Consultas, atividades e lembretes</span>
+            <Link href="/painel/rotina">Ver rotina →</Link>
+          </div>
+        </article>
+
+        <article className="dashboard-metric-card metric-orange">
           <span className="dashboard-metric-icon">⚠</span>
           <div>
             <strong>—</strong>
-            <span>Alertas importantes</span>
-            <Link href="/painel/alertas">Ver alertas</Link>
+            <span className="dashboard-metric-label">Alertas importantes</span>
+            <span className="dashboard-metric-help">Itens que precisam de atenção</span>
+            <Link href="/painel/alertas">Ver alertas →</Link>
           </div>
         </article>
       </section>
 
-      <section className="dashboard-columns">
-        <article className="dashboard-panel dashboard-agenda">
+      <section className="dashboard-main-grid">
+        <article className="dashboard-panel">
           <div className="dashboard-panel-heading">
             <div>
               <p className="eyebrow">Hoje</p>
               <h2>Agenda do dia</h2>
             </div>
-
-            <Link href="/painel/rotina">Ver agenda</Link>
+            <Link href="/painel/rotina">Ver agenda completa</Link>
           </div>
 
           {agendaHoje.length === 0 ? (
             <div className="dashboard-empty">
               <strong>Nenhum cuidado agendado para hoje</strong>
-              <span>
-                Os compromissos e cuidados aparecerão aqui.
-              </span>
+              <span>Os compromissos e cuidados aparecerão aqui.</span>
             </div>
           ) : (
             <div className="dashboard-agenda-list">
               {agendaHoje.map((item) => (
                 <div key={item.id} className="dashboard-agenda-item">
                   <time>{horario(item.inicio)}</time>
-
                   <div>
                     <strong>{item.titulo}</strong>
-                    <span>
-                      {item.usuario.nomePreferido ??
-                        item.usuario.nome}
-                    </span>
+                    <span>{item.usuario.nomePreferido ?? item.usuario.nome}</span>
                   </div>
-
                   <small>{item.status}</small>
                 </div>
               ))}
@@ -201,9 +194,8 @@ export default async function PainelPage() {
           <div className="dashboard-panel-heading">
             <div>
               <p className="eyebrow">Acompanhamento</p>
-              <h2>Pessoas</h2>
+              <h2>Pessoas acompanhadas</h2>
             </div>
-
             <Link href="/painel/pessoas">Ver todas</Link>
           </div>
 
@@ -221,59 +213,73 @@ export default async function PainelPage() {
                   className="dashboard-person"
                 >
                   <span className="dashboard-person-avatar">
-                    {(pessoa.nomePreferido ?? pessoa.nome)
-                      .charAt(0)
-                      .toUpperCase()}
+                    {(pessoa.nomePreferido ?? pessoa.nome).charAt(0).toUpperCase()}
                   </span>
-
                   <div>
-                    <strong>
-                      {pessoa.nomePreferido ?? pessoa.nome}
-                    </strong>
-
-                    {pessoa.nomePreferido && (
-                      <small>{pessoa.nome}</small>
-                    )}
+                    <strong>{pessoa.nomePreferido ?? pessoa.nome}</strong>
+                    {pessoa.nomePreferido && <small>{pessoa.nome}</small>}
                   </div>
-
-                  <span>›</span>
+                  <span className="dashboard-person-arrow">›</span>
                 </Link>
               ))}
             </div>
           )}
         </article>
+      </section>
 
-        <article className="dashboard-panel">
-          <div className="dashboard-panel-heading">
-            <div>
-              <p className="eyebrow">CIDA</p>
-              <h2>Acesso rápido</h2>
-            </div>
-          </div>
-
-          <div className="dashboard-quick-list">
+      <section className="dashboard-bottom-grid">
+        <article className="dashboard-panel dashboard-quick-card">
+          <h2>Acesso rápido</h2>
+          <div className="dashboard-quick-grid">
             <Link href="/painel/saude">
-              <span>♥</span>
-              Perfil clínico
+              <span className="dashboard-quick-icon">💊</span>
+              Medicamentos
+              <small>Perfil clínico</small>
             </Link>
-
             <Link href="/painel/rotina">
-              <span>📅</span>
-              Rotina
+              <span className="dashboard-quick-icon">📅</span>
+              Novo cuidado
+              <small>Agendar</small>
             </Link>
-
-            <Link href="/painel/mensagens">
-              <span>✉</span>
-              Mensagens
+            <Link href="/painel/rotina">
+              <span className="dashboard-quick-icon">✅</span>
+              Registrar atividade
+              <small>Rotina</small>
             </Link>
-
-            <Link href="/painel/cida">
-              <span>◉</span>
-              Conversar com a CIDA
+            <Link href="/painel/pessoas">
+              <span className="dashboard-quick-icon">👤＋</span>
+              Pessoas
+              <small>Gerenciar</small>
+            </Link>
+            <Link href="/painel/relatorios">
+              <span className="dashboard-quick-icon">📋</span>
+              Relatórios
+              <small>Acessar</small>
             </Link>
           </div>
         </article>
+
+        <article className="dashboard-cida-card">
+          <div>
+            <p className="eyebrow">CIDA</p>
+            <h2>Assistente de Cuidados</h2>
+            <p>
+              Use a CIDA para organizar lembretes, consultar informações do acompanhamento
+              e acessar rapidamente os próximos cuidados.
+            </p>
+          </div>
+          <div className="dashboard-cida-actions">
+            <Link href="/painel/cida">Perguntar algo</Link>
+            <Link href="/painel/rotina">Ver rotina</Link>
+            <Link href="/painel/mensagens">Mensagens</Link>
+          </div>
+        </article>
       </section>
+
+      <footer className="dashboard-footer">
+        <span>♡ Cuidar é um ato de amor. Estamos juntos nessa jornada.</span>
+        <span>SACV v0.5</span>
+      </footer>
     </div>
   );
 }
