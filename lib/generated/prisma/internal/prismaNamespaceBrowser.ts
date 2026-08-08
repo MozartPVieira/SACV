@@ -230,6 +230,7 @@ export const MedicamentoScalarFieldEnum = {
   usuarioId: 'usuarioId',
   nome: 'nome',
   dose: 'dose',
+  apresentacao: 'apresentacao',
   instrucoes: 'instrucoes',
   ativo: 'ativo'
 } as const
@@ -241,6 +242,7 @@ export const HorarioMedicamentoScalarFieldEnum = {
   id: 'id',
   medicamentoId: 'medicamentoId',
   horario: 'horario',
+  dose: 'dose',
   diasSemana: 'diasSemana'
 } as const
 

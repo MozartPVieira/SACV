@@ -29,6 +29,7 @@ export type MedicamentoMinAggregateOutputType = {
   usuarioId: string | null
   nome: string | null
   dose: string | null
+  apresentacao: string | null
   instrucoes: string | null
   ativo: boolean | null
 }
@@ -38,6 +39,7 @@ export type MedicamentoMaxAggregateOutputType = {
   usuarioId: string | null
   nome: string | null
   dose: string | null
+  apresentacao: string | null
   instrucoes: string | null
   ativo: boolean | null
 }
@@ -47,6 +49,7 @@ export type MedicamentoCountAggregateOutputType = {
   usuarioId: number
   nome: number
   dose: number
+  apresentacao: number
   instrucoes: number
   ativo: number
   _all: number
@@ -58,6 +61,7 @@ export type MedicamentoMinAggregateInputType = {
   usuarioId?: true
   nome?: true
   dose?: true
+  apresentacao?: true
   instrucoes?: true
   ativo?: true
 }
@@ -67,6 +71,7 @@ export type MedicamentoMaxAggregateInputType = {
   usuarioId?: true
   nome?: true
   dose?: true
+  apresentacao?: true
   instrucoes?: true
   ativo?: true
 }
@@ -76,6 +81,7 @@ export type MedicamentoCountAggregateInputType = {
   usuarioId?: true
   nome?: true
   dose?: true
+  apresentacao?: true
   instrucoes?: true
   ativo?: true
   _all?: true
@@ -158,6 +164,7 @@ export type MedicamentoGroupByOutputType = {
   usuarioId: string
   nome: string
   dose: string | null
+  apresentacao: string | null
   instrucoes: string | null
   ativo: boolean
   _count: MedicamentoCountAggregateOutputType | null
@@ -188,6 +195,7 @@ export type MedicamentoWhereInput = {
   usuarioId?: Prisma.StringFilter<"Medicamento"> | string
   nome?: Prisma.StringFilter<"Medicamento"> | string
   dose?: Prisma.StringNullableFilter<"Medicamento"> | string | null
+  apresentacao?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   instrucoes?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   ativo?: Prisma.BoolFilter<"Medicamento"> | boolean
   usuario?: Prisma.XOR<Prisma.UsuarioSACVScalarRelationFilter, Prisma.UsuarioSACVWhereInput>
@@ -199,6 +207,7 @@ export type MedicamentoOrderByWithRelationInput = {
   usuarioId?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   dose?: Prisma.SortOrderInput | Prisma.SortOrder
+  apresentacao?: Prisma.SortOrderInput | Prisma.SortOrder
   instrucoes?: Prisma.SortOrderInput | Prisma.SortOrder
   ativo?: Prisma.SortOrder
   usuario?: Prisma.UsuarioSACVOrderByWithRelationInput
@@ -213,6 +222,7 @@ export type MedicamentoWhereUniqueInput = Prisma.AtLeast<{
   usuarioId?: Prisma.StringFilter<"Medicamento"> | string
   nome?: Prisma.StringFilter<"Medicamento"> | string
   dose?: Prisma.StringNullableFilter<"Medicamento"> | string | null
+  apresentacao?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   instrucoes?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   ativo?: Prisma.BoolFilter<"Medicamento"> | boolean
   usuario?: Prisma.XOR<Prisma.UsuarioSACVScalarRelationFilter, Prisma.UsuarioSACVWhereInput>
@@ -224,6 +234,7 @@ export type MedicamentoOrderByWithAggregationInput = {
   usuarioId?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   dose?: Prisma.SortOrderInput | Prisma.SortOrder
+  apresentacao?: Prisma.SortOrderInput | Prisma.SortOrder
   instrucoes?: Prisma.SortOrderInput | Prisma.SortOrder
   ativo?: Prisma.SortOrder
   _count?: Prisma.MedicamentoCountOrderByAggregateInput
@@ -239,6 +250,7 @@ export type MedicamentoScalarWhereWithAggregatesInput = {
   usuarioId?: Prisma.StringWithAggregatesFilter<"Medicamento"> | string
   nome?: Prisma.StringWithAggregatesFilter<"Medicamento"> | string
   dose?: Prisma.StringNullableWithAggregatesFilter<"Medicamento"> | string | null
+  apresentacao?: Prisma.StringNullableWithAggregatesFilter<"Medicamento"> | string | null
   instrucoes?: Prisma.StringNullableWithAggregatesFilter<"Medicamento"> | string | null
   ativo?: Prisma.BoolWithAggregatesFilter<"Medicamento"> | boolean
 }
@@ -247,6 +259,7 @@ export type MedicamentoCreateInput = {
   id?: string
   nome: string
   dose?: string | null
+  apresentacao?: string | null
   instrucoes?: string | null
   ativo?: boolean
   usuario: Prisma.UsuarioSACVCreateNestedOneWithoutMedicamentosInput
@@ -258,6 +271,7 @@ export type MedicamentoUncheckedCreateInput = {
   usuarioId: string
   nome: string
   dose?: string | null
+  apresentacao?: string | null
   instrucoes?: string | null
   ativo?: boolean
   horarios?: Prisma.HorarioMedicamentoUncheckedCreateNestedManyWithoutMedicamentoInput
@@ -267,6 +281,7 @@ export type MedicamentoUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  apresentacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instrucoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   usuario?: Prisma.UsuarioSACVUpdateOneRequiredWithoutMedicamentosNestedInput
@@ -278,6 +293,7 @@ export type MedicamentoUncheckedUpdateInput = {
   usuarioId?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  apresentacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instrucoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   horarios?: Prisma.HorarioMedicamentoUncheckedUpdateManyWithoutMedicamentoNestedInput
@@ -288,6 +304,7 @@ export type MedicamentoCreateManyInput = {
   usuarioId: string
   nome: string
   dose?: string | null
+  apresentacao?: string | null
   instrucoes?: string | null
   ativo?: boolean
 }
@@ -296,6 +313,7 @@ export type MedicamentoUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  apresentacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instrucoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
@@ -305,6 +323,7 @@ export type MedicamentoUncheckedUpdateManyInput = {
   usuarioId?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  apresentacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instrucoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
@@ -324,6 +343,7 @@ export type MedicamentoCountOrderByAggregateInput = {
   usuarioId?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   dose?: Prisma.SortOrder
+  apresentacao?: Prisma.SortOrder
   instrucoes?: Prisma.SortOrder
   ativo?: Prisma.SortOrder
 }
@@ -333,6 +353,7 @@ export type MedicamentoMaxOrderByAggregateInput = {
   usuarioId?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   dose?: Prisma.SortOrder
+  apresentacao?: Prisma.SortOrder
   instrucoes?: Prisma.SortOrder
   ativo?: Prisma.SortOrder
 }
@@ -342,6 +363,7 @@ export type MedicamentoMinOrderByAggregateInput = {
   usuarioId?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   dose?: Prisma.SortOrder
+  apresentacao?: Prisma.SortOrder
   instrucoes?: Prisma.SortOrder
   ativo?: Prisma.SortOrder
 }
@@ -411,6 +433,7 @@ export type MedicamentoCreateWithoutUsuarioInput = {
   id?: string
   nome: string
   dose?: string | null
+  apresentacao?: string | null
   instrucoes?: string | null
   ativo?: boolean
   horarios?: Prisma.HorarioMedicamentoCreateNestedManyWithoutMedicamentoInput
@@ -420,6 +443,7 @@ export type MedicamentoUncheckedCreateWithoutUsuarioInput = {
   id?: string
   nome: string
   dose?: string | null
+  apresentacao?: string | null
   instrucoes?: string | null
   ativo?: boolean
   horarios?: Prisma.HorarioMedicamentoUncheckedCreateNestedManyWithoutMedicamentoInput
@@ -459,6 +483,7 @@ export type MedicamentoScalarWhereInput = {
   usuarioId?: Prisma.StringFilter<"Medicamento"> | string
   nome?: Prisma.StringFilter<"Medicamento"> | string
   dose?: Prisma.StringNullableFilter<"Medicamento"> | string | null
+  apresentacao?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   instrucoes?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   ativo?: Prisma.BoolFilter<"Medicamento"> | boolean
 }
@@ -467,6 +492,7 @@ export type MedicamentoCreateWithoutHorariosInput = {
   id?: string
   nome: string
   dose?: string | null
+  apresentacao?: string | null
   instrucoes?: string | null
   ativo?: boolean
   usuario: Prisma.UsuarioSACVCreateNestedOneWithoutMedicamentosInput
@@ -477,6 +503,7 @@ export type MedicamentoUncheckedCreateWithoutHorariosInput = {
   usuarioId: string
   nome: string
   dose?: string | null
+  apresentacao?: string | null
   instrucoes?: string | null
   ativo?: boolean
 }
@@ -501,6 +528,7 @@ export type MedicamentoUpdateWithoutHorariosInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  apresentacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instrucoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   usuario?: Prisma.UsuarioSACVUpdateOneRequiredWithoutMedicamentosNestedInput
@@ -511,6 +539,7 @@ export type MedicamentoUncheckedUpdateWithoutHorariosInput = {
   usuarioId?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  apresentacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instrucoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
@@ -519,6 +548,7 @@ export type MedicamentoCreateManyUsuarioInput = {
   id?: string
   nome: string
   dose?: string | null
+  apresentacao?: string | null
   instrucoes?: string | null
   ativo?: boolean
 }
@@ -527,6 +557,7 @@ export type MedicamentoUpdateWithoutUsuarioInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  apresentacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instrucoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   horarios?: Prisma.HorarioMedicamentoUpdateManyWithoutMedicamentoNestedInput
@@ -536,6 +567,7 @@ export type MedicamentoUncheckedUpdateWithoutUsuarioInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  apresentacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instrucoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   horarios?: Prisma.HorarioMedicamentoUncheckedUpdateManyWithoutMedicamentoNestedInput
@@ -545,6 +577,7 @@ export type MedicamentoUncheckedUpdateManyWithoutUsuarioInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  apresentacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instrucoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
@@ -585,6 +618,7 @@ export type MedicamentoSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   usuarioId?: boolean
   nome?: boolean
   dose?: boolean
+  apresentacao?: boolean
   instrucoes?: boolean
   ativo?: boolean
   usuario?: boolean | Prisma.UsuarioSACVDefaultArgs<ExtArgs>
@@ -597,6 +631,7 @@ export type MedicamentoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   usuarioId?: boolean
   nome?: boolean
   dose?: boolean
+  apresentacao?: boolean
   instrucoes?: boolean
   ativo?: boolean
   usuario?: boolean | Prisma.UsuarioSACVDefaultArgs<ExtArgs>
@@ -607,6 +642,7 @@ export type MedicamentoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   usuarioId?: boolean
   nome?: boolean
   dose?: boolean
+  apresentacao?: boolean
   instrucoes?: boolean
   ativo?: boolean
   usuario?: boolean | Prisma.UsuarioSACVDefaultArgs<ExtArgs>
@@ -617,11 +653,12 @@ export type MedicamentoSelectScalar = {
   usuarioId?: boolean
   nome?: boolean
   dose?: boolean
+  apresentacao?: boolean
   instrucoes?: boolean
   ativo?: boolean
 }
 
-export type MedicamentoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "usuarioId" | "nome" | "dose" | "instrucoes" | "ativo", ExtArgs["result"]["medicamento"]>
+export type MedicamentoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "usuarioId" | "nome" | "dose" | "apresentacao" | "instrucoes" | "ativo", ExtArgs["result"]["medicamento"]>
 export type MedicamentoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   usuario?: boolean | Prisma.UsuarioSACVDefaultArgs<ExtArgs>
   horarios?: boolean | Prisma.Medicamento$horariosArgs<ExtArgs>
@@ -645,6 +682,7 @@ export type $MedicamentoPayload<ExtArgs extends runtime.Types.Extensions.Interna
     usuarioId: string
     nome: string
     dose: string | null
+    apresentacao: string | null
     instrucoes: string | null
     ativo: boolean
   }, ExtArgs["result"]["medicamento"]>
@@ -1076,6 +1114,7 @@ export interface MedicamentoFieldRefs {
   readonly usuarioId: Prisma.FieldRef<"Medicamento", 'String'>
   readonly nome: Prisma.FieldRef<"Medicamento", 'String'>
   readonly dose: Prisma.FieldRef<"Medicamento", 'String'>
+  readonly apresentacao: Prisma.FieldRef<"Medicamento", 'String'>
   readonly instrucoes: Prisma.FieldRef<"Medicamento", 'String'>
   readonly ativo: Prisma.FieldRef<"Medicamento", 'Boolean'>
 }

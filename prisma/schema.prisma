@@ -198,25 +198,26 @@ model MembroRedeApoio {
 }
 
 model Medicamento {
-  id         String               @id @default(cuid())
-  usuarioId  String
-  nome       String
-  dose       String?
-  instrucoes String?
-  ativo      Boolean              @default(true)
-  usuario    UsuarioSACV          @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
-  horarios   HorarioMedicamento[]
+  id           String               @id @default(cuid())
+  usuarioId    String
+  nome         String
+  dose         String?
+  apresentacao String?
+  instrucoes   String?
+  ativo        Boolean              @default(true)
+  usuario      UsuarioSACV          @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  horarios     HorarioMedicamento[]
 }
 
 model HorarioMedicamento {
   id            String                   @id @default(cuid())
   medicamentoId String
   horario       String
+  dose          String?
   diasSemana    String?
   medicamento   Medicamento              @relation(fields: [medicamentoId], references: [id], onDelete: Cascade)
   confirmacoes  ConfirmacaoMedicamento[]
 }
-
 model ConfirmacaoMedicamento {
   id           String             @id @default(cuid())
   horarioId    String

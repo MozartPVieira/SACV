@@ -28,6 +28,7 @@ export type HorarioMedicamentoMinAggregateOutputType = {
   id: string | null
   medicamentoId: string | null
   horario: string | null
+  dose: string | null
   diasSemana: string | null
 }
 
@@ -35,6 +36,7 @@ export type HorarioMedicamentoMaxAggregateOutputType = {
   id: string | null
   medicamentoId: string | null
   horario: string | null
+  dose: string | null
   diasSemana: string | null
 }
 
@@ -42,6 +44,7 @@ export type HorarioMedicamentoCountAggregateOutputType = {
   id: number
   medicamentoId: number
   horario: number
+  dose: number
   diasSemana: number
   _all: number
 }
@@ -51,6 +54,7 @@ export type HorarioMedicamentoMinAggregateInputType = {
   id?: true
   medicamentoId?: true
   horario?: true
+  dose?: true
   diasSemana?: true
 }
 
@@ -58,6 +62,7 @@ export type HorarioMedicamentoMaxAggregateInputType = {
   id?: true
   medicamentoId?: true
   horario?: true
+  dose?: true
   diasSemana?: true
 }
 
@@ -65,6 +70,7 @@ export type HorarioMedicamentoCountAggregateInputType = {
   id?: true
   medicamentoId?: true
   horario?: true
+  dose?: true
   diasSemana?: true
   _all?: true
 }
@@ -145,6 +151,7 @@ export type HorarioMedicamentoGroupByOutputType = {
   id: string
   medicamentoId: string
   horario: string
+  dose: string | null
   diasSemana: string | null
   _count: HorarioMedicamentoCountAggregateOutputType | null
   _min: HorarioMedicamentoMinAggregateOutputType | null
@@ -173,6 +180,7 @@ export type HorarioMedicamentoWhereInput = {
   id?: Prisma.StringFilter<"HorarioMedicamento"> | string
   medicamentoId?: Prisma.StringFilter<"HorarioMedicamento"> | string
   horario?: Prisma.StringFilter<"HorarioMedicamento"> | string
+  dose?: Prisma.StringNullableFilter<"HorarioMedicamento"> | string | null
   diasSemana?: Prisma.StringNullableFilter<"HorarioMedicamento"> | string | null
   medicamento?: Prisma.XOR<Prisma.MedicamentoScalarRelationFilter, Prisma.MedicamentoWhereInput>
   confirmacoes?: Prisma.ConfirmacaoMedicamentoListRelationFilter
@@ -182,6 +190,7 @@ export type HorarioMedicamentoOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   medicamentoId?: Prisma.SortOrder
   horario?: Prisma.SortOrder
+  dose?: Prisma.SortOrderInput | Prisma.SortOrder
   diasSemana?: Prisma.SortOrderInput | Prisma.SortOrder
   medicamento?: Prisma.MedicamentoOrderByWithRelationInput
   confirmacoes?: Prisma.ConfirmacaoMedicamentoOrderByRelationAggregateInput
@@ -194,6 +203,7 @@ export type HorarioMedicamentoWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.HorarioMedicamentoWhereInput | Prisma.HorarioMedicamentoWhereInput[]
   medicamentoId?: Prisma.StringFilter<"HorarioMedicamento"> | string
   horario?: Prisma.StringFilter<"HorarioMedicamento"> | string
+  dose?: Prisma.StringNullableFilter<"HorarioMedicamento"> | string | null
   diasSemana?: Prisma.StringNullableFilter<"HorarioMedicamento"> | string | null
   medicamento?: Prisma.XOR<Prisma.MedicamentoScalarRelationFilter, Prisma.MedicamentoWhereInput>
   confirmacoes?: Prisma.ConfirmacaoMedicamentoListRelationFilter
@@ -203,6 +213,7 @@ export type HorarioMedicamentoOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   medicamentoId?: Prisma.SortOrder
   horario?: Prisma.SortOrder
+  dose?: Prisma.SortOrderInput | Prisma.SortOrder
   diasSemana?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.HorarioMedicamentoCountOrderByAggregateInput
   _max?: Prisma.HorarioMedicamentoMaxOrderByAggregateInput
@@ -216,12 +227,14 @@ export type HorarioMedicamentoScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"HorarioMedicamento"> | string
   medicamentoId?: Prisma.StringWithAggregatesFilter<"HorarioMedicamento"> | string
   horario?: Prisma.StringWithAggregatesFilter<"HorarioMedicamento"> | string
+  dose?: Prisma.StringNullableWithAggregatesFilter<"HorarioMedicamento"> | string | null
   diasSemana?: Prisma.StringNullableWithAggregatesFilter<"HorarioMedicamento"> | string | null
 }
 
 export type HorarioMedicamentoCreateInput = {
   id?: string
   horario: string
+  dose?: string | null
   diasSemana?: string | null
   medicamento: Prisma.MedicamentoCreateNestedOneWithoutHorariosInput
   confirmacoes?: Prisma.ConfirmacaoMedicamentoCreateNestedManyWithoutHorarioInput
@@ -231,6 +244,7 @@ export type HorarioMedicamentoUncheckedCreateInput = {
   id?: string
   medicamentoId: string
   horario: string
+  dose?: string | null
   diasSemana?: string | null
   confirmacoes?: Prisma.ConfirmacaoMedicamentoUncheckedCreateNestedManyWithoutHorarioInput
 }
@@ -238,6 +252,7 @@ export type HorarioMedicamentoUncheckedCreateInput = {
 export type HorarioMedicamentoUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.StringFieldUpdateOperationsInput | string
+  dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   diasSemana?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicamento?: Prisma.MedicamentoUpdateOneRequiredWithoutHorariosNestedInput
   confirmacoes?: Prisma.ConfirmacaoMedicamentoUpdateManyWithoutHorarioNestedInput
@@ -247,6 +262,7 @@ export type HorarioMedicamentoUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   medicamentoId?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.StringFieldUpdateOperationsInput | string
+  dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   diasSemana?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confirmacoes?: Prisma.ConfirmacaoMedicamentoUncheckedUpdateManyWithoutHorarioNestedInput
 }
@@ -255,12 +271,14 @@ export type HorarioMedicamentoCreateManyInput = {
   id?: string
   medicamentoId: string
   horario: string
+  dose?: string | null
   diasSemana?: string | null
 }
 
 export type HorarioMedicamentoUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.StringFieldUpdateOperationsInput | string
+  dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   diasSemana?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
@@ -268,6 +286,7 @@ export type HorarioMedicamentoUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   medicamentoId?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.StringFieldUpdateOperationsInput | string
+  dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   diasSemana?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
@@ -285,6 +304,7 @@ export type HorarioMedicamentoCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   medicamentoId?: Prisma.SortOrder
   horario?: Prisma.SortOrder
+  dose?: Prisma.SortOrder
   diasSemana?: Prisma.SortOrder
 }
 
@@ -292,6 +312,7 @@ export type HorarioMedicamentoMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   medicamentoId?: Prisma.SortOrder
   horario?: Prisma.SortOrder
+  dose?: Prisma.SortOrder
   diasSemana?: Prisma.SortOrder
 }
 
@@ -299,6 +320,7 @@ export type HorarioMedicamentoMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   medicamentoId?: Prisma.SortOrder
   horario?: Prisma.SortOrder
+  dose?: Prisma.SortOrder
   diasSemana?: Prisma.SortOrder
 }
 
@@ -366,6 +388,7 @@ export type HorarioMedicamentoUpdateOneRequiredWithoutConfirmacoesNestedInput = 
 export type HorarioMedicamentoCreateWithoutMedicamentoInput = {
   id?: string
   horario: string
+  dose?: string | null
   diasSemana?: string | null
   confirmacoes?: Prisma.ConfirmacaoMedicamentoCreateNestedManyWithoutHorarioInput
 }
@@ -373,6 +396,7 @@ export type HorarioMedicamentoCreateWithoutMedicamentoInput = {
 export type HorarioMedicamentoUncheckedCreateWithoutMedicamentoInput = {
   id?: string
   horario: string
+  dose?: string | null
   diasSemana?: string | null
   confirmacoes?: Prisma.ConfirmacaoMedicamentoUncheckedCreateNestedManyWithoutHorarioInput
 }
@@ -410,12 +434,14 @@ export type HorarioMedicamentoScalarWhereInput = {
   id?: Prisma.StringFilter<"HorarioMedicamento"> | string
   medicamentoId?: Prisma.StringFilter<"HorarioMedicamento"> | string
   horario?: Prisma.StringFilter<"HorarioMedicamento"> | string
+  dose?: Prisma.StringNullableFilter<"HorarioMedicamento"> | string | null
   diasSemana?: Prisma.StringNullableFilter<"HorarioMedicamento"> | string | null
 }
 
 export type HorarioMedicamentoCreateWithoutConfirmacoesInput = {
   id?: string
   horario: string
+  dose?: string | null
   diasSemana?: string | null
   medicamento: Prisma.MedicamentoCreateNestedOneWithoutHorariosInput
 }
@@ -424,6 +450,7 @@ export type HorarioMedicamentoUncheckedCreateWithoutConfirmacoesInput = {
   id?: string
   medicamentoId: string
   horario: string
+  dose?: string | null
   diasSemana?: string | null
 }
 
@@ -446,6 +473,7 @@ export type HorarioMedicamentoUpdateToOneWithWhereWithoutConfirmacoesInput = {
 export type HorarioMedicamentoUpdateWithoutConfirmacoesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.StringFieldUpdateOperationsInput | string
+  dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   diasSemana?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicamento?: Prisma.MedicamentoUpdateOneRequiredWithoutHorariosNestedInput
 }
@@ -454,18 +482,21 @@ export type HorarioMedicamentoUncheckedUpdateWithoutConfirmacoesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   medicamentoId?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.StringFieldUpdateOperationsInput | string
+  dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   diasSemana?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type HorarioMedicamentoCreateManyMedicamentoInput = {
   id?: string
   horario: string
+  dose?: string | null
   diasSemana?: string | null
 }
 
 export type HorarioMedicamentoUpdateWithoutMedicamentoInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.StringFieldUpdateOperationsInput | string
+  dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   diasSemana?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confirmacoes?: Prisma.ConfirmacaoMedicamentoUpdateManyWithoutHorarioNestedInput
 }
@@ -473,6 +504,7 @@ export type HorarioMedicamentoUpdateWithoutMedicamentoInput = {
 export type HorarioMedicamentoUncheckedUpdateWithoutMedicamentoInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.StringFieldUpdateOperationsInput | string
+  dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   diasSemana?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confirmacoes?: Prisma.ConfirmacaoMedicamentoUncheckedUpdateManyWithoutHorarioNestedInput
 }
@@ -480,6 +512,7 @@ export type HorarioMedicamentoUncheckedUpdateWithoutMedicamentoInput = {
 export type HorarioMedicamentoUncheckedUpdateManyWithoutMedicamentoInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.StringFieldUpdateOperationsInput | string
+  dose?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   diasSemana?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
@@ -518,6 +551,7 @@ export type HorarioMedicamentoSelect<ExtArgs extends runtime.Types.Extensions.In
   id?: boolean
   medicamentoId?: boolean
   horario?: boolean
+  dose?: boolean
   diasSemana?: boolean
   medicamento?: boolean | Prisma.MedicamentoDefaultArgs<ExtArgs>
   confirmacoes?: boolean | Prisma.HorarioMedicamento$confirmacoesArgs<ExtArgs>
@@ -528,6 +562,7 @@ export type HorarioMedicamentoSelectCreateManyAndReturn<ExtArgs extends runtime.
   id?: boolean
   medicamentoId?: boolean
   horario?: boolean
+  dose?: boolean
   diasSemana?: boolean
   medicamento?: boolean | Prisma.MedicamentoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["horarioMedicamento"]>
@@ -536,6 +571,7 @@ export type HorarioMedicamentoSelectUpdateManyAndReturn<ExtArgs extends runtime.
   id?: boolean
   medicamentoId?: boolean
   horario?: boolean
+  dose?: boolean
   diasSemana?: boolean
   medicamento?: boolean | Prisma.MedicamentoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["horarioMedicamento"]>
@@ -544,10 +580,11 @@ export type HorarioMedicamentoSelectScalar = {
   id?: boolean
   medicamentoId?: boolean
   horario?: boolean
+  dose?: boolean
   diasSemana?: boolean
 }
 
-export type HorarioMedicamentoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "medicamentoId" | "horario" | "diasSemana", ExtArgs["result"]["horarioMedicamento"]>
+export type HorarioMedicamentoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "medicamentoId" | "horario" | "dose" | "diasSemana", ExtArgs["result"]["horarioMedicamento"]>
 export type HorarioMedicamentoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   medicamento?: boolean | Prisma.MedicamentoDefaultArgs<ExtArgs>
   confirmacoes?: boolean | Prisma.HorarioMedicamento$confirmacoesArgs<ExtArgs>
@@ -570,6 +607,7 @@ export type $HorarioMedicamentoPayload<ExtArgs extends runtime.Types.Extensions.
     id: string
     medicamentoId: string
     horario: string
+    dose: string | null
     diasSemana: string | null
   }, ExtArgs["result"]["horarioMedicamento"]>
   composites: {}
@@ -999,6 +1037,7 @@ export interface HorarioMedicamentoFieldRefs {
   readonly id: Prisma.FieldRef<"HorarioMedicamento", 'String'>
   readonly medicamentoId: Prisma.FieldRef<"HorarioMedicamento", 'String'>
   readonly horario: Prisma.FieldRef<"HorarioMedicamento", 'String'>
+  readonly dose: Prisma.FieldRef<"HorarioMedicamento", 'String'>
   readonly diasSemana: Prisma.FieldRef<"HorarioMedicamento", 'String'>
 }
     
